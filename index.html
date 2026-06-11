@@ -6,25 +6,23 @@
   <title>Edward Iloemezue — Mechanical Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:        #0A2342;
-      --navy-mid:    #1a3a5c;
-      --teal:        #1a7a5e;
-      --teal-mid:    #2d9e7a;
-      --teal-light:  #e6f4ef;
       --bg:          #ffffff;
-      --bg-alt:      #f5f7f9;
-      --bg-dark:     #0e1c2f;
-      --text:        #1e2329;
-      --text-soft:   #3d4754;
-      --text-muted:  #6b7280;
-      --border:      #e2e6ea;
-      --radius:      12px;
-      --card-radius: 14px;
+      --bg-alt:      #f8fafc;
+      --bg-card:     #ffffff;
+      --border:      #e2e8ea;
+      --accent:      #1d4ed8;
+      --accent-mid:  #3b82f6;
+      --accent-light:#eff6ff;
+      --navy:        #0f172a;
+      --text:        #1e293b;
+      --text-soft:   #475569;
+      --text-muted:  #94a3b8;
+      --radius:      10px;
     }
 
     html { scroll-behavior: smooth; }
@@ -42,198 +40,99 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       padding: 0 5vw;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 64px;
+      height: 60px;
     }
 
     .nav-logo {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1.05rem;
+      font-size: 0.9rem;
+      font-weight: 700;
       color: var(--navy);
       text-decoration: none;
-      letter-spacing: -0.3px;
+      letter-spacing: -0.2px;
     }
 
-    .nav-logo span { color: var(--teal); }
+    .nav-logo span { color: var(--accent); }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-    }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
 
     nav ul a {
-      font-size: 0.875rem;
+      font-size: 0.82rem;
       font-weight: 500;
-      color: var(--text-soft);
+      color: var(--text-muted);
       text-decoration: none;
       transition: color 0.2s;
     }
 
-    nav ul a:hover { color: var(--teal); }
+    nav ul a:hover { color: var(--navy); }
 
     .nav-cta {
       background: var(--navy) !important;
       color: #fff !important;
-      padding: 0.45rem 1.2rem;
+      padding: 0.4rem 1rem;
       border-radius: 6px;
       font-weight: 600 !important;
-      transition: background 0.2s !important;
+      font-size: 0.8rem !important;
     }
 
-    .nav-cta:hover { background: var(--navy-mid) !important; }
-
-    /* ─── SECTIONS ────────────────────────────────────── */
-    section { padding: 90px 5vw; }
-
-    .section-label {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 0.6rem;
-    }
-
-    h2 {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(1.7rem, 2.8vw, 2.2rem);
-      font-weight: 800;
-      color: var(--navy);
-      margin-bottom: 0.4rem;
-      line-height: 1.2;
-    }
-
-    .section-sub {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      max-width: 480px;
-      margin-bottom: 3rem;
-    }
+    .nav-cta:hover { background: #1e3a5f !important; }
 
     /* ─── HERO ────────────────────────────────────────── */
     #hero {
-      min-height: calc(100vh - 64px);
-      display: grid;
-      grid-template-columns: 1fr 400px;
-      gap: 5rem;
-      align-items: center;
-      padding-top: 80px;
-      padding-bottom: 80px;
-      background: var(--bg);
-    }
-
-    .hero-text { max-width: 560px; }
-
-    .open-to-work {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--teal-light);
-      color: var(--teal);
-      font-size: 0.78rem;
-      font-weight: 600;
-      padding: 0.38rem 0.9rem;
-      border-radius: 4px;
-      margin-bottom: 1.4rem;
-      letter-spacing: 0.5px;
-    }
-
-    .open-to-work::before {
-      content: '';
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: var(--teal-mid);
-      flex-shrink: 0;
-    }
-
-    .hero-text h1 {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(2.2rem, 4.5vw, 3.4rem);
-      font-weight: 800;
-      color: var(--navy);
-      line-height: 1.1;
-      letter-spacing: -1px;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-text h1 span { color: var(--teal); }
-
-    .hero-role {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      margin-bottom: 1.2rem;
-      letter-spacing: 0.2px;
-    }
-
-    .hero-divider {
-      width: 40px;
-      height: 3px;
-      background: var(--teal);
-      border-radius: 2px;
-      margin-bottom: 1.4rem;
-    }
-
-    .hero-bio {
-      font-size: 1rem;
-      color: var(--text-soft);
-      max-width: 480px;
-      line-height: 1.8;
-      margin-bottom: 2.2rem;
-    }
-
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-    .btn-primary {
-      background: var(--navy);
-      color: #fff;
-      padding: 0.72rem 1.6rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: background 0.2s, transform 0.15s;
-    }
-
-    .btn-primary:hover { background: var(--navy-mid); transform: translateY(-1px); }
-
-    .btn-outline {
-      border: 1.5px solid var(--navy);
-      color: var(--navy);
-      padding: 0.7rem 1.6rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: background 0.2s, transform 0.15s;
-    }
-
-    .btn-outline:hover { background: var(--bg-alt); transform: translateY(-1px); }
-
-    /* Hero photo */
-    .hero-photo-wrap {
-      position: relative;
+      min-height: calc(100vh - 60px);
       display: flex;
+      align-items: center;
       justify-content: center;
+      padding: 80px 5vw;
+      position: relative;
+      overflow: hidden;
+      background: var(--navy);
     }
 
-    .hero-photo-frame {
-      width: 340px;
-      height: 400px;
-      border-radius: var(--card-radius);
-      overflow: hidden;
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
+    /* Subtle engineering grid background */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(59,130,246,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,246,0.06) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+
+    /* Radial fade to make edges darker */
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(15,23,42,0.6) 100%);
+    }
+
+    .hero-card {
       position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    /* Photo */
+    .hero-photo-frame {
+      width: 260px;
+      height: 320px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
     }
 
     .hero-photo-frame img {
@@ -251,314 +150,359 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      color: var(--text-muted);
-    }
-
-    .photo-placeholder p { font-size: 0.82rem; }
-
-    /* Floating credentials */
-    .hero-creds {
-      position: absolute;
-      left: -24px;
-      bottom: 32px;
-      display: flex;
-      flex-direction: column;
       gap: 10px;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.75rem;
     }
 
-    .cred-pill {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 8px 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.07);
-      white-space: nowrap;
-    }
+    /* Hero text */
+    .hero-text { flex: 1; }
 
-    .cred-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--teal);
-      flex-shrink: 0;
-    }
-
-    .cred-pill span {
-      font-size: 0.78rem;
+    .hero-eyebrow {
+      font-size: 0.68rem;
       font-weight: 600;
-      color: var(--text);
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--accent-mid);
+      margin-bottom: 1rem;
     }
 
-    .cred-pill small {
-      font-size: 0.7rem;
+    .hero-text h1 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-tag:not(:last-child)::after {
+      content: '·';
+      margin-left: 0.5rem;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .hero-bio {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.8;
+      max-width: 460px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      padding: 0.65rem 1.4rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover { background: #1d4ed8; transform: translateY(-1px); }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.75);
+      padding: 0.63rem 1.4rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.85rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-outline:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+
+    .open-to-work {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(59,130,246,0.12);
+      border: 1px solid rgba(59,130,246,0.25);
+      color: var(--accent-mid);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.28rem 0.75rem;
+      border-radius: 4px;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.3px;
+    }
+
+    .open-to-work::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent-mid);
+    }
+
+    /* ─── SECTIONS ────────────────────────────────────── */
+    section { padding: 90px 5vw; }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 2.2vw, 1.9rem);
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.3px;
+    }
+
+    .section-sub {
       color: var(--text-muted);
-      display: block;
-      font-weight: 400;
+      font-size: 0.875rem;
+      max-width: 480px;
+      margin-bottom: 2.8rem;
+    }
+
+    .section-divider {
+      width: 28px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin-bottom: 2.8rem;
     }
 
     /* ─── ABOUT ───────────────────────────────────────── */
-    #about { background: var(--bg-alt); }
+    #about { background: var(--bg-alt); border-bottom: 1px solid var(--border); }
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
+      grid-template-columns: 1.3fr 1fr;
       gap: 4rem;
       align-items: start;
     }
 
     .about-text p {
-      font-size: 1rem;
+      font-size: 0.92rem;
       line-height: 1.85;
       color: var(--text-soft);
       margin-bottom: 1rem;
     }
 
-    .about-text p:last-child { margin-bottom: 0; }
-
     .stats-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
     }
 
     .stat-card {
       background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--card-radius);
       padding: 1.4rem 1.2rem;
       text-align: center;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-
-    .stat-card:hover {
-      border-color: var(--teal);
-      box-shadow: 0 4px 16px rgba(26,122,94,0.1);
     }
 
     .stat-number {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.9rem;
-      font-weight: 800;
+      font-size: 1.7rem;
+      font-weight: 700;
       color: var(--navy);
       line-height: 1;
       margin-bottom: 0.3rem;
     }
 
     .stat-label {
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       color: var(--text-muted);
       font-weight: 500;
-      line-height: 1.3;
+      line-height: 1.4;
     }
 
     /* ─── SKILLS ──────────────────────────────────────── */
-    #skills { background: var(--bg); }
+    #skills { background: var(--bg); border-bottom: 1px solid var(--border); }
 
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.2rem;
-    }
-
-    .skill-panel {
-      background: var(--bg-alt);
+      gap: 1px;
+      background: var(--border);
       border: 1px solid var(--border);
-      border-radius: var(--card-radius);
-      padding: 1.6rem;
-      transition: border-color 0.2s;
+      border-radius: var(--radius);
+      overflow: hidden;
     }
 
-    .skill-panel:hover { border-color: var(--teal); }
+    .skill-panel { background: var(--bg-alt); padding: 1.6rem; }
 
     .skill-panel h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--navy);
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--text-muted);
       margin-bottom: 1rem;
       text-transform: uppercase;
-      letter-spacing: 0.8px;
+      letter-spacing: 1.5px;
     }
 
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 
     .skill-tag {
       background: var(--bg);
       border: 1px solid var(--border);
       color: var(--text-soft);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 500;
-      padding: 0.28rem 0.75rem;
+      padding: 0.26rem 0.7rem;
       border-radius: 4px;
     }
 
     /* ─── PROJECTS ────────────────────────────────────── */
-    #projects { background: var(--bg-alt); }
+    #projects { background: var(--bg-alt); border-bottom: 1px solid var(--border); }
 
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.6rem;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
     }
 
     .project-card {
       background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--card-radius);
-      overflow: hidden;
-      transition: border-color 0.2s, box-shadow 0.25s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.2s;
     }
 
-    .project-card:hover {
-      border-color: var(--teal);
-      box-shadow: 0 8px 32px rgba(26,122,94,0.12);
-      transform: translateY(-4px);
-    }
+    .project-card:hover { background: #f1f5f9; }
 
     .project-img {
-      height: 180px;
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      height: 150px;
+      background: var(--navy);
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
     }
 
-    .project-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    .project-img img { width: 100%; height: 100%; object-fit: cover; }
 
     .project-img-label {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 700;
+      font-size: 0.65rem;
+      font-weight: 600;
       letter-spacing: 2px;
       text-transform: uppercase;
       color: rgba(255,255,255,0.35);
     }
 
-    .project-body { padding: 1.4rem; }
+    .project-body { padding: 1.4rem; flex: 1; display: flex; flex-direction: column; }
 
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 0.8rem;
-    }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.8rem; }
 
     .project-tag {
-      background: var(--teal-light);
-      color: var(--teal);
-      font-size: 0.7rem;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 0.66rem;
       font-weight: 600;
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-      letter-spacing: 0.3px;
+      padding: 0.18rem 0.5rem;
+      border-radius: 3px;
     }
 
     .project-body h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
+      font-size: 0.875rem;
+      font-weight: 600;
       color: var(--navy);
       margin-bottom: 0.5rem;
-      line-height: 1.35;
+      line-height: 1.4;
     }
 
     .project-body p {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: var(--text-muted);
       line-height: 1.65;
+      flex: 1;
       margin-bottom: 1rem;
     }
 
     .project-meta {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       color: var(--text-muted);
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .project-meta::before {
-      content: '';
-      width: 12px; height: 1px;
-      background: var(--border);
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
     }
 
     /* ─── CERTIFICATIONS ──────────────────────────────── */
-    #certifications { background: var(--bg); }
+    #certifications { background: var(--bg); border-bottom: 1px solid var(--border); }
 
     .certs-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 1rem;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
     }
 
     .cert-card {
       background: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: var(--card-radius);
       padding: 1.4rem 1rem;
       text-align: center;
       text-decoration: none;
       display: block;
-      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      transition: background 0.2s;
     }
 
-    .cert-card:hover {
-      border-color: var(--teal);
-      box-shadow: 0 6px 20px rgba(26,122,94,0.12);
-      transform: translateY(-3px);
-    }
+    .cert-card:hover { background: var(--accent-light); }
 
-    .cert-badge-img {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 0.9rem;
-      display: block;
-    }
+    .cert-badge-img { width: 68px; height: 68px; margin: 0 auto 0.85rem; display: block; }
 
     .cert-card h4 {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 700;
+      font-size: 0.75rem;
+      font-weight: 600;
       color: var(--navy);
-      margin-bottom: 0.25rem;
-      line-height: 1.3;
+      margin-bottom: 0.2rem;
+      line-height: 1.35;
     }
 
     .cert-card .cert-sub {
-      font-size: 0.72rem;
-      color: var(--teal);
-      font-weight: 600;
+      font-size: 0.65rem;
+      color: var(--accent);
+      font-weight: 500;
       display: block;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.15rem;
     }
 
-    .cert-card .cert-date {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-    }
+    .cert-card .cert-date { font-size: 0.62rem; color: var(--text-muted); }
 
     .cert-verify {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      font-size: 0.68rem;
-      color: var(--teal);
+      font-size: 0.62rem;
+      color: var(--accent);
       font-weight: 600;
-      margin-top: 0.6rem;
+      margin-top: 0.5rem;
       opacity: 0;
       transition: opacity 0.2s;
     }
@@ -566,31 +510,32 @@
     .cert-card:hover .cert-verify { opacity: 1; }
 
     /* ─── EDUCATION ───────────────────────────────────── */
-    #education { background: var(--bg-alt); }
+    #education { background: var(--bg-alt); border-bottom: 1px solid var(--border); }
 
     .edu-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.4rem;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
     }
 
     .edu-card {
       background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--card-radius);
       padding: 2rem;
       display: flex;
       gap: 1.2rem;
       align-items: flex-start;
-      transition: border-color 0.2s;
+      transition: background 0.2s;
     }
 
-    .edu-card:hover { border-color: var(--teal); }
+    .edu-card:hover { background: #f8fafc; }
 
     .edu-icon {
-      width: 72px;
-      height: 72px;
-      border-radius: 10px;
+      width: 68px; height: 68px;
+      border-radius: var(--radius);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -600,119 +545,86 @@
       border: 1px solid var(--border);
     }
 
-    .edu-icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      padding: 8px;
-    }
-
-    .edu-icon.dark-bg {
-      background: var(--navy);
-    }
+    .edu-icon img { width: 100%; height: 100%; object-fit: contain; padding: 8px; }
+    .edu-icon.dark-bg { background: #0a2342; }
 
     .edu-info h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
+      font-size: 0.875rem;
+      font-weight: 600;
       color: var(--navy);
       margin-bottom: 0.25rem;
-      line-height: 1.3;
+      line-height: 1.35;
     }
 
     .edu-info .degree {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 500;
-      color: var(--teal);
+      color: var(--accent);
       margin-bottom: 0.2rem;
     }
 
-    .edu-info .period {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
+    .edu-info .period { font-size: 0.72rem; color: var(--text-muted); }
 
     /* ─── CONTACT ─────────────────────────────────────── */
     #contact {
-      background: var(--bg-dark);
-      padding: 100px 5vw;
+      background: var(--navy);
+      padding: 90px 5vw;
     }
 
-    #contact .section-label { color: var(--teal-mid); }
+    #contact .section-label { color: var(--accent-mid); }
     #contact h2 { color: #fff; }
-    #contact .section-sub { color: rgba(255,255,255,0.45); }
+    #contact .section-sub { color: rgba(255,255,255,0.4); }
 
-    .contact-links {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 2.4rem;
-    }
+    .contact-links { display: flex; gap: 0.9rem; flex-wrap: wrap; margin-top: 2rem; }
 
     .contact-link {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.1);
-      color: rgba(255,255,255,0.85);
+      color: rgba(255,255,255,0.75);
       text-decoration: none;
-      padding: 0.8rem 1.4rem;
-      border-radius: 8px;
-      font-size: 0.88rem;
+      padding: 0.7rem 1.2rem;
+      border-radius: var(--radius);
+      font-size: 0.85rem;
       font-weight: 500;
-      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
     }
 
     .contact-link:hover {
-      background: rgba(26,122,94,0.15);
-      border-color: var(--teal-mid);
+      border-color: var(--accent-mid);
+      color: #fff;
       transform: translateY(-2px);
     }
 
     .contact-link-icon {
-      width: 30px; height: 30px;
+      width: 28px; height: 28px;
       border-radius: 6px;
-      background: var(--teal);
+      background: rgba(59,130,246,0.15);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
 
-    .contact-link-icon svg {
-      fill: none;
-      stroke: #fff;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
+    .contact-link-icon svg { fill: none; stroke: var(--accent-mid); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
     /* ─── FOOTER ──────────────────────────────────────── */
     footer {
-      background: var(--bg-dark);
-      border-top: 1px solid rgba(255,255,255,0.06);
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,0.07);
       text-align: center;
-      padding: 1.6rem 5vw;
-      font-size: 0.8rem;
+      padding: 1.4rem 5vw;
+      font-size: 0.72rem;
       color: rgba(255,255,255,0.25);
     }
 
-    /* ─── DIVIDERS ────────────────────────────────────── */
-    .section-divider {
-      width: 48px;
-      height: 3px;
-      background: var(--teal);
-      border-radius: 2px;
-      margin-bottom: 3rem;
-    }
-
     /* ─── RESPONSIVE ──────────────────────────────────── */
-    @media (max-width: 960px) {
-      #hero { grid-template-columns: 1fr; text-align: center; padding-top: 60px; }
-      .hero-photo-wrap { order: -1; justify-content: center; }
-      .hero-photo-frame { width: 260px; height: 300px; }
-      .hero-creds { display: none; }
+    @media (max-width: 860px) {
+      .hero-card { flex-direction: column; align-items: center; text-align: center; gap: 2.5rem; }
+      .hero-tags { justify-content: center; }
+      .hero-bio { margin: 0 auto 2rem; }
       .hero-actions { justify-content: center; }
       .about-grid { grid-template-columns: 1fr; }
       .projects-grid { grid-template-columns: 1fr 1fr; }
@@ -725,7 +637,6 @@
       .skills-grid { grid-template-columns: 1fr; }
       .projects-grid { grid-template-columns: 1fr; }
       .certs-grid { grid-template-columns: repeat(2, 1fr); }
-      .stats-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -746,49 +657,36 @@
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-text">
-    <div class="open-to-work">Open to Opportunities</div>
-    <h1>Edward<br /><span>Iloemezue</span></h1>
-    <p class="hero-role">Mechanical Engineer &nbsp;·&nbsp; MEng Graduate &nbsp;·&nbsp; Ontario, Canada</p>
-    <div class="hero-divider"></div>
-    <p class="hero-bio">
-      Mechanical engineer with industry experience across energy, manufacturing, and robotics control systems.
-      I combine CAD design, simulation, and data-driven analysis to deliver reliable engineering solutions.
-    </p>
-    <div class="hero-actions">
-      <a href="#projects" class="btn-primary">View Projects</a>
-      <a href="#contact" class="btn-outline">Get in Touch</a>
-    </div>
-  </div>
+  <div class="hero-card">
 
-  <div class="hero-photo-wrap">
-    <div class="hero-photo-frame" id="hero-photo-frame">
-      <img src="profile.jpg" alt="Edward Iloemezue" onerror="this.style.display='none';document.getElementById('photo-placeholder').style.display='flex';" />
+    <div class="hero-photo-frame">
+      <img src="profile.jpeg" alt="Edward Iloemezue"
+        onerror="this.style.display='none';document.getElementById('photo-placeholder').style.display='flex';" />
       <div class="photo-placeholder" id="photo-placeholder" style="display:none;">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
-          <circle cx="12" cy="7" r="4"/>
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
         </svg>
-        <p>Add profile.jpg to this folder</p>
+        <p>Add profile.jpeg</p>
       </div>
     </div>
 
-    <div class="hero-creds">
-      <div class="cred-pill">
-        <div class="cred-dot"></div>
-        <div>
-          <span>5× SolidWorks Certified</span>
-          <small>CSWA · CSWP · 3× CSWPA</small>
-        </div>
+    <div class="hero-text">
+      <div class="open-to-work">Available for Full-Time Roles</div>
+      <h1>Edward Iloemezue</h1>
+      <div class="hero-tags">
+        <span class="hero-tag">Mechanical Engineer</span>
+        <span class="hero-tag">MEng Graduate</span>
+        <span class="hero-tag">Ontario, Canada</span>
       </div>
-      <div class="cred-pill">
-        <div class="cred-dot"></div>
-        <div>
-          <span>MEng Mechanical Engineering</span>
-          <small>UOIT · Class of 2026</small>
-        </div>
+      <p class="hero-bio">
+        Mechanical engineer with hands-on experience in energy systems, industrial manufacturing, and robotics control. I apply CAD design, simulation, and data analysis to build reliable engineering solutions.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="#contact" class="btn-outline">Get in Touch</a>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -799,15 +697,9 @@
   <div class="section-divider"></div>
   <div class="about-grid">
     <div class="about-text">
-      <p>
-        I'm a Mechanical Engineer with a Master's degree from the University of Ontario Institute of Technology, backed by a Bachelor's in Mechanical Engineering from Covenant University, Nigeria. My expertise spans robotics control systems, power generation, and industrial manufacturing.
-      </p>
-      <p>
-        Across three industry roles — at Pulita Energy, Mikano Steel Factory, and UOIT — I've applied simulation tools, precision CAD design, and systematic data analysis to solve real engineering problems. I value rigour, attention to detail, and delivering work that holds up under scrutiny.
-      </p>
-      <p>
-        Based in Ontario, Canada, I'm actively seeking full-time mechanical engineering roles where I can contribute from day one.
-      </p>
+      <p>I'm a Mechanical Engineer with a Master's degree from Ontario Tech University, backed by a Bachelor's from Covenant University, Nigeria. My expertise spans robotics control systems, power generation, and industrial manufacturing.</p>
+      <p>Across three industry roles — at Pulita Energy, Mikano Steel Factory, and UOIT — I've applied simulation tools, precision CAD design, and systematic data analysis to solve real engineering problems. I value rigour, attention to detail, and delivering work that holds up under scrutiny.</p>
+      <p>Based in Ontario, Canada, and actively seeking full-time mechanical engineering roles.</p>
     </div>
     <div class="stats-grid">
       <div class="stat-card">
@@ -816,7 +708,7 @@
       </div>
       <div class="stat-card">
         <div class="stat-number">MEng</div>
-        <div class="stat-label">Graduate · UOIT 2026</div>
+        <div class="stat-label">Graduate · 2026</div>
       </div>
       <div class="stat-card">
         <div class="stat-number">3</div>
@@ -833,23 +725,23 @@
 <!-- SKILLS -->
 <section id="skills">
   <span class="section-label">Technical Skills</span>
-  <h2>Tools &amp; Expertise</h2>
+  <h2>Tools & Expertise</h2>
   <div class="section-divider"></div>
   <div class="skills-grid">
     <div class="skill-panel">
-      <h3>CAD &amp; Design</h3>
+      <h3>CAD & Design</h3>
       <div class="skill-tags">
         <span class="skill-tag">SolidWorks</span>
         <span class="skill-tag">AutoCAD</span>
         <span class="skill-tag">3D Modelling</span>
         <span class="skill-tag">Sheet Metal</span>
         <span class="skill-tag">Weldments</span>
-        <span class="skill-tag">GD&amp;T</span>
+        <span class="skill-tag">GD&T</span>
         <span class="skill-tag">Technical Drawing</span>
       </div>
     </div>
     <div class="skill-panel">
-      <h3>Simulation &amp; Analysis</h3>
+      <h3>Simulation & Analysis</h3>
       <div class="skill-tags">
         <span class="skill-tag">MATLAB</span>
         <span class="skill-tag">Simulink</span>
@@ -872,7 +764,7 @@
       </div>
     </div>
     <div class="skill-panel">
-      <h3>Engineering &amp; Reporting</h3>
+      <h3>Engineering & Reporting</h3>
       <div class="skill-tags">
         <span class="skill-tag">Preventive Maintenance</span>
         <span class="skill-tag">Asset Management</span>
@@ -893,9 +785,7 @@
   <div class="projects-grid">
 
     <div class="project-card">
-      <div class="project-img">
-        <span class="project-img-label">Robotics &amp; Control</span>
-      </div>
+      <div class="project-img"><span class="project-img-label">Robotics & Control</span></div>
       <div class="project-body">
         <div class="project-tags">
           <span class="project-tag">MATLAB</span>
@@ -910,25 +800,21 @@
     </div>
 
     <div class="project-card">
-      <div class="project-img">
-        <span class="project-img-label">Energy &amp; Reliability</span>
-      </div>
+      <div class="project-img"><span class="project-img-label">Energy & Reliability</span></div>
       <div class="project-body">
         <div class="project-tags">
           <span class="project-tag">Data Analysis</span>
           <span class="project-tag">Reliability</span>
           <span class="project-tag">Asset Management</span>
         </div>
-        <h3>Generator System Performance &amp; Reliability Optimisation</h3>
+        <h3>Generator System Performance & Reliability Optimisation</h3>
         <p>Analysed generator fleet performance data at Pulita Energy to identify failure patterns, implement preventive maintenance schedules, and improve overall system uptime.</p>
         <div class="project-meta">Pulita Energy &nbsp;·&nbsp; 2024</div>
       </div>
     </div>
 
     <div class="project-card">
-      <div class="project-img">
-        <span class="project-img-label">Design &amp; Manufacturing</span>
-      </div>
+      <div class="project-img"><span class="project-img-label">Design & Manufacturing</span></div>
       <div class="project-body">
         <div class="project-tags">
           <span class="project-tag">SolidWorks</span>
@@ -936,7 +822,7 @@
           <span class="project-tag">BOM</span>
           <span class="project-tag">Manufacturing</span>
         </div>
-        <h3>Design &amp; Manufacturing of Industrial Steel Equipment</h3>
+        <h3>Design & Manufacturing of Industrial Steel Equipment</h3>
         <p>Created full SolidWorks and AutoCAD designs for industrial steel structures at Mikano Steel Factory, managing BOMs and coordinating manufacturing processes from drawing to delivery.</p>
         <div class="project-meta">Mikano Steel Factory &nbsp;·&nbsp; 2022</div>
       </div>
@@ -951,47 +837,41 @@
   <h2>SolidWorks Credentials</h2>
   <div class="section-divider"></div>
   <div class="certs-grid">
-
     <a class="cert-card" href="https://www.credly.com/badges/c283e06a-464e-4d75-82b8-44bf2114efa6" target="_blank" rel="noopener">
-      <img class="cert-badge-img" src="https://images.credly.com/images/7329299d-32ce-48ed-8527-b6db73f7e224/blob" alt="CSWA badge" />
+      <img class="cert-badge-img" src="https://images.credly.com/images/7329299d-32ce-48ed-8527-b6db73f7e224/blob" alt="CSWA" />
       <h4>Certified SOLIDWORKS Design Associate</h4>
       <span class="cert-sub">CSWA</span>
-      <span class="cert-date">Issued Feb 2022</span>
-      <span class="cert-verify">✓ Verify on Credly</span>
+      <span class="cert-date">Feb 2022</span>
+      <span class="cert-verify">↗ Verify</span>
     </a>
-
     <a class="cert-card" href="https://www.credly.com/badges/a969f54d-d91a-4463-8ff7-4e7c8d749b1b" target="_blank" rel="noopener">
-      <img class="cert-badge-img" src="https://images.credly.com/images/be9a31ad-4684-4413-8882-8e39064a4d1a/blob" alt="CSWP badge" />
+      <img class="cert-badge-img" src="https://images.credly.com/images/be9a31ad-4684-4413-8882-8e39064a4d1a/blob" alt="CSWP" />
       <h4>Certified SOLIDWORKS Design Professional</h4>
       <span class="cert-sub">CSWP</span>
-      <span class="cert-date">Issued Mar 2023</span>
-      <span class="cert-verify">✓ Verify on Credly</span>
+      <span class="cert-date">Mar 2023</span>
+      <span class="cert-verify">↗ Verify</span>
     </a>
-
     <a class="cert-card" href="https://www.credly.com/badges/8b08fd64-0ad9-4a30-8ea9-0f6c357a011c" target="_blank" rel="noopener">
-      <img class="cert-badge-img" src="https://images.credly.com/images/422106a4-f564-4c82-bf1b-2089ed0e297d/blob" alt="CSWPA Sheet Metal badge" />
+      <img class="cert-badge-img" src="https://images.credly.com/images/422106a4-f564-4c82-bf1b-2089ed0e297d/blob" alt="CSWPA Sheet Metal" />
       <h4>Certified SOLIDWORKS Sheet Metal Professional</h4>
       <span class="cert-sub">CSWPA — Sheet Metal</span>
-      <span class="cert-date">Issued Mar 2023</span>
-      <span class="cert-verify">✓ Verify on Credly</span>
+      <span class="cert-date">Mar 2023</span>
+      <span class="cert-verify">↗ Verify</span>
     </a>
-
     <a class="cert-card" href="https://www.credly.com/badges/39fa8072-5469-4980-a1ea-ae5a7c93e0da" target="_blank" rel="noopener">
-      <img class="cert-badge-img" src="https://images.credly.com/images/2e1320ee-4b2d-4a70-93c2-ef2c9bfa69ba/blob" alt="CSWPA Weldments badge" />
+      <img class="cert-badge-img" src="https://images.credly.com/images/2e1320ee-4b2d-4a70-93c2-ef2c9bfa69ba/blob" alt="CSWPA Weldments" />
       <h4>Certified SOLIDWORKS Weldments Professional</h4>
       <span class="cert-sub">CSWPA — Weldments</span>
-      <span class="cert-date">Issued Mar 2023</span>
-      <span class="cert-verify">✓ Verify on Credly</span>
+      <span class="cert-date">Mar 2023</span>
+      <span class="cert-verify">↗ Verify</span>
     </a>
-
     <a class="cert-card" href="https://www.credly.com/badges/d7241448-9a5b-4a89-a97a-35c8c761afc1" target="_blank" rel="noopener">
-      <img class="cert-badge-img" src="https://images.credly.com/images/d2662c9d-ab19-480c-814f-e61a476cc719/blob" alt="CSWPA Drawing Tools badge" />
+      <img class="cert-badge-img" src="https://images.credly.com/images/d2662c9d-ab19-480c-814f-e61a476cc719/blob" alt="CSWPA Drawing Tools" />
       <h4>Certified SOLIDWORKS Drawing Tools Professional</h4>
       <span class="cert-sub">CSWPA — Drawing Tools</span>
-      <span class="cert-date">Issued Mar 2023</span>
-      <span class="cert-verify">✓ Verify on Credly</span>
+      <span class="cert-date">Mar 2023</span>
+      <span class="cert-verify">↗ Verify</span>
     </a>
-
   </div>
 </section>
 
@@ -1003,11 +883,7 @@
   <div class="edu-grid">
     <div class="edu-card">
       <div class="edu-icon dark-bg">
-        <img
-          src="https://files.ontariotechu.ca/images/logos/rgb-logo-small-reverse.png"
-          alt="Ontario Tech University"
-          onerror="this.parentElement.innerHTML='🇨🇦'"
-        />
+        <img src="https://files.ontariotechu.ca/images/logos/rgb-logo-small-reverse.png" alt="Ontario Tech" onerror="this.parentElement.innerHTML='🇨🇦'" />
       </div>
       <div class="edu-info">
         <h3>Ontario Tech University (UOIT)</h3>
@@ -1017,11 +893,7 @@
     </div>
     <div class="edu-card">
       <div class="edu-icon">
-        <img
-          src="https://covenantuniversity.edu.ng/images/logos/covenant-university-logo-desktop.png"
-          alt="Covenant University"
-          onerror="this.parentElement.innerHTML='🇳🇬'"
-        />
+        <img src="https://covenantuniversity.edu.ng/images/logos/covenant-university-logo-desktop.png" alt="Covenant University" onerror="this.parentElement.innerHTML='🇳🇬'" />
       </div>
       <div class="edu-info">
         <h3>Covenant University</h3>
@@ -1035,7 +907,7 @@
 <!-- CONTACT -->
 <section id="contact">
   <span class="section-label">Contact</span>
-  <h2>Let's Connect</h2>
+  <h2>Get in Touch</h2>
   <p class="section-sub">Open to full-time mechanical engineering roles across Ontario and Canada.</p>
   <div class="contact-links">
     <a href="mailto:edwardiloemezue@gmail.com" class="contact-link">
@@ -1048,7 +920,7 @@
       <div class="contact-link-icon">
         <svg viewBox="0 0 24 24" width="14" height="14"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
       </div>
-      LinkedIn Profile
+      LinkedIn
     </a>
     <a href="tel:+14379374866" class="contact-link">
       <div class="contact-link-icon">
@@ -1059,10 +931,7 @@
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <p>© 2026 Edward Iloemezue &nbsp;·&nbsp; Mechanical Engineer &nbsp;·&nbsp; Ontario, Canada</p>
-</footer>
+<footer>© 2026 Edward Iloemezue &nbsp;·&nbsp; Mechanical Engineer &nbsp;·&nbsp; Ontario, Canada</footer>
 
 </body>
 </html>
