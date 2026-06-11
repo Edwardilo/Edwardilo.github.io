@@ -56,9 +56,23 @@
       color: var(--navy);
       text-decoration: none;
       letter-spacing: -0.2px;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
     }
 
     .nav-logo span { color: var(--accent); }
+
+    .nav-portfolio-tag {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+    }
 
     nav ul { list-style: none; display: flex; gap: 2rem; }
 
@@ -659,7 +673,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo">Edward <span>Iloemezue</span></a>
+  <a href="#hero" class="nav-logo">Edward <span>Iloemezue</span><span class="nav-portfolio-tag">Portfolio</span></a>
   <ul>
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
