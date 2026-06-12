@@ -936,20 +936,28 @@
   <h2 class="fade-up">Selected Work</h2>
   <div class="section-divider fade-up"></div>
   <div class="projects-grid">
-    <div class="project-card fade-up">
-      <div class="project-img"><span class="project-img-label">Robotics & Control</span></div>
+    <a class="project-card fade-up" href="https://github.com/Edwardilo/GROUP-4-FINAL-PROJECT" target="_blank" rel="noopener" style="text-decoration:none;">
+      <div class="project-img">
+        <img src="simulink.png" alt="Simulink Diagram"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <span class="project-img-label" style="display:none;">Robotics & Control</span>
+      </div>
       <div class="project-body">
         <div class="project-tags">
           <span class="project-tag">MATLAB</span>
           <span class="project-tag">Simulink</span>
           <span class="project-tag">PID</span>
+          <span class="project-tag">Genetic Algorithm</span>
           <span class="project-tag">Optimisation</span>
         </div>
-        <h3>PID Control Optimisation of a Robotic Manipulator</h3>
-        <p>Designed and optimised PID controllers for a multi-joint robotic manipulator in MATLAB/Simulink, improving tracking accuracy and settling time through systematic parameter tuning.</p>
-        <div class="project-meta">UOIT &nbsp;·&nbsp; 2025</div>
+        <h3>PID Controller Optimisation via Genetic Algorithm</h3>
+        <p>Optimised PID controller gains for a dynamic system using a Genetic Algorithm in MATLAB/Simulink. The GA iteratively evolved gain parameters by minimising a fitness function, improving system response, reducing overshoot, and enhancing stability over manual tuning.</p>
+        <div class="project-meta" style="display:flex; justify-content:space-between; align-items:center;">
+          <span>UOIT &nbsp;·&nbsp; 2025</span>
+          <span style="font-size:0.7rem; color:var(--accent); font-weight:600;">↗ View on GitHub</span>
+        </div>
       </div>
-    </div>
+    </a>
     <div class="project-card fade-up delay-1">
       <div class="project-img"><span class="project-img-label">Energy & Reliability</span></div>
       <div class="project-body">
