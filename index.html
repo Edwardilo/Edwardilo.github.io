@@ -1872,12 +1872,15 @@
     const panel = modal.querySelector('.modal-panel');
 
     if (enterFrom) {
-      // Fade in from transparent
+      // Start faded + offset to the side, then animate in
+      const startX = enterFrom === 'next' ? '40px' : '-40px';
       panel.style.transition = 'none';
       panel.style.opacity = '0';
+      panel.style.transform = `translateX(${startX})`;
       panel.offsetHeight; // force reflow
-      panel.style.transition = 'opacity 0.3s ease';
+      panel.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
       panel.style.opacity = '1';
+      panel.style.transform = 'translateX(0)';
     }
 
     modal.classList.remove('closing');
@@ -1890,6 +1893,7 @@
       setTimeout(() => {
         panel.style.transition = '';
         panel.style.opacity = '';
+        panel.style.transform = '';
         isSwitching = false;
       }, 320);
     }
@@ -1920,14 +1924,17 @@
     }
     const nextId = PROJECT_ORDER[nextIdx];
 
-    // Fade out current panel, then swap
-    panel.style.transition = 'opacity 0.2s ease';
+    // Fade out + drift in exit direction
+    const exitX = direction === 'next' ? '-40px' : '40px';
+    panel.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
     panel.style.opacity = '0';
+    panel.style.transform = `translateX(${exitX})`;
 
     setTimeout(() => {
       modal.classList.remove('open', 'closing');
       panel.style.transition = '';
       panel.style.opacity = '';
+      panel.style.transform = '';
       document.body.style.overflow = '';
 
       openProjectModal(nextId, enterFrom);
