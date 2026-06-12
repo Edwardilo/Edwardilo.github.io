@@ -344,12 +344,8 @@
     .stats-grid {
       display: flex;
       flex-direction: row;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      max-width: 600px;
+      gap: 1rem;
+      max-width: 640px;
     }
 
     .stat-card {
@@ -360,10 +356,13 @@
       justify-content: center;
       text-align: center;
       background: var(--bg);
-      padding: 1.6rem 1rem;
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 2rem 1.2rem;
       opacity: 0;
       transform: translateY(16px);
-      transition: opacity 0.5s ease, transform 0.5s ease, background 0.2s;
+      transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.2s, box-shadow 0.2s;
     }
 
     .stat-card.slide-in {
@@ -371,14 +370,17 @@
       transform: translateY(0);
     }
 
-    .stat-card:hover { background: var(--accent-light); }
+    .stat-card:hover {
+      border-top-color: var(--accent-mid);
+      box-shadow: 0 4px 16px rgba(29,78,216,0.08);
+    }
 
     .stat-number {
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: 700;
-      color: var(--navy);
+      color: var(--accent);
       line-height: 1;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
     }
 
     .stat-label {
@@ -386,6 +388,8 @@
       color: var(--text-muted);
       font-weight: 500;
       line-height: 1.4;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
     }
 
     /* ─── EXPERIENCE TIMELINE ─────────────────────────── */
