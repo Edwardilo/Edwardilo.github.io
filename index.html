@@ -1856,6 +1856,15 @@
         dot.classList.toggle('active', i === activeIdx);
       });
     });
+    // Dim nav buttons at the boundaries
+    document.querySelectorAll('.modal-nav--prev').forEach(btn => {
+      btn.style.opacity = activeIdx === 0 ? '0.2' : '';
+      btn.style.pointerEvents = activeIdx === 0 ? 'none' : '';
+    });
+    document.querySelectorAll('.modal-nav--next').forEach(btn => {
+      btn.style.opacity = activeIdx === PROJECT_ORDER.length - 1 ? '0.2' : '';
+      btn.style.pointerEvents = activeIdx === PROJECT_ORDER.length - 1 ? 'none' : '';
+    });
   }
 
   function openProjectModal(id, enterFrom) {
@@ -1907,9 +1916,14 @@
     panel.style.transform = exitTo;
 
     const idx = PROJECT_ORDER.indexOf(currentId);
-    const nextIdx = direction === 'next'
-      ? (idx + 1) % PROJECT_ORDER.length
-      : (idx - 1 + PROJECT_ORDER.length) % PROJECT_ORDER.length;
+    const nextIdx = direction === 'next' ? idx + 1 : idx - 1;
+    // Stop at boundaries
+    if (nextIdx < 0 || nextIdx >= PROJECT_ORDER.length) {
+      panel.style.transition = '';
+      panel.style.transform = '';
+      isSwitching = false;
+      return;
+    }
     const nextId = PROJECT_ORDER[nextIdx];
 
     setTimeout(() => {
@@ -1928,6 +1942,8 @@
     if (isSwitching) return;
     const idx = getOpenIdx();
     if (idx === -1) return;
+    if (direction === 'next' && idx === PROJECT_ORDER.length - 1) return;
+    if (direction === 'prev' && idx === 0) return;
     isSwitching = true;
     exitAndSwitch(PROJECT_ORDER[idx], direction);
   };
