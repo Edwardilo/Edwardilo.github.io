@@ -341,28 +341,15 @@
     /* ─── ABOUT ───────────────────────────────────────── */
     #about { background: var(--bg-alt); border-bottom: 1px solid var(--border); }
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .about-text p {
-      font-size: 0.92rem;
-      line-height: 1.85;
-      color: var(--text-soft);
-      margin-bottom: 1rem;
-    }
-
     .stats-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(4, 1fr);
       gap: 1px;
       background: var(--border);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       overflow: hidden;
+      max-width: 700px;
     }
 
     .stat-card {
@@ -765,8 +752,8 @@
       .hero-tags { justify-content: center; }
       .hero-bio { margin: 0 auto 2rem; }
       .hero-actions { justify-content: center; }
-      .about-grid { grid-template-columns: 1fr; }
-      .projects-grid { grid-template-columns: 1fr 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+.projects-grid { grid-template-columns: 1fr 1fr; }
       .certs-grid { grid-template-columns: repeat(3, 1fr); }
       .edu-grid { grid-template-columns: 1fr; }
       nav ul { display: none; }
@@ -834,13 +821,7 @@
   <span class="section-label fade-up"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>About</span>
   <h2 class="fade-up">Engineering that delivers.</h2>
   <div class="section-divider fade-up"></div>
-  <div class="about-grid">
-    <div class="about-text fade-up">
-      <p>I'm a Mechanical Engineer with a Master's degree from Ontario Tech University, backed by a Bachelor's from Covenant University, Nigeria. My expertise spans robotics control systems, power generation, and industrial manufacturing.</p>
-      <p>Across three industry roles — at Pulita Energy, Mikano Steel Factory, and UOIT — I've applied simulation tools, precision CAD design, and systematic data analysis to solve real engineering problems. I value rigour, attention to detail, and delivering work that holds up under scrutiny.</p>
-      <p>Based in Ontario, Canada, and actively seeking full-time mechanical engineering roles.</p>
-    </div>
-    <div class="stats-grid fade-up delay-1">
+  <div class="stats-grid fade-up">
       <div class="stat-card">
         <div class="stat-number" data-count="5" data-suffix="×">5×</div>
         <div class="stat-label">SolidWorks Certifications</div>
@@ -854,11 +835,10 @@
         <div class="stat-label">Industry Roles</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number" data-count="2">2</div>
-        <div class="stat-label">Countries</div>
+        <div class="stat-number" data-count="3">3</div>
+        <div class="stat-label">Industries</div>
       </div>
     </div>
-  </div>
 </section>
 
 <!-- EXPERIENCE -->
