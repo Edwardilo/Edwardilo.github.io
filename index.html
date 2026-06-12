@@ -342,33 +342,44 @@
     #about { background: var(--bg-alt); border-bottom: 1px solid var(--border); }
 
     .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      max-width: 700px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      max-width: 560px;
     }
 
     .stat-card {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
       background: var(--bg);
-      padding: 1.4rem 1.2rem;
-      text-align: center;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.6rem;
+      opacity: 0;
+      transform: translateX(-22px);
+      transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.2s;
     }
 
+    .stat-card.slide-in {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .stat-card:hover { border-left-color: var(--accent-mid); }
+
     .stat-number {
-      font-size: 1.7rem;
+      font-size: 1.9rem;
       font-weight: 700;
       color: var(--navy);
       line-height: 1;
-      margin-bottom: 0.3rem;
+      min-width: 3rem;
     }
 
     .stat-label {
-      font-size: 0.72rem;
-      color: var(--text-muted);
+      font-size: 0.82rem;
+      color: var(--text-soft);
       font-weight: 500;
       line-height: 1.4;
     }
@@ -752,7 +763,7 @@
       .hero-tags { justify-content: center; }
       .hero-bio { margin: 0 auto 2rem; }
       .hero-actions { justify-content: center; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-grid { max-width: 100%; }
 .projects-grid { grid-template-columns: 1fr 1fr; }
       .certs-grid { grid-template-columns: repeat(3, 1fr); }
       .edu-grid { grid-template-columns: 1fr; }
@@ -821,24 +832,20 @@
   <span class="section-label fade-up"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>About</span>
   <h2 class="fade-up">Engineering that delivers.</h2>
   <div class="section-divider fade-up"></div>
-  <div class="stats-grid fade-up">
-      <div class="stat-card">
-        <div class="stat-number" data-count="5" data-suffix="×">5×</div>
-        <div class="stat-label">SolidWorks Certifications</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">MEng</div>
-        <div class="stat-label">Graduate · 2026</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number" data-count="3">3</div>
-        <div class="stat-label">Industry Roles</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number" data-count="3">3</div>
-        <div class="stat-label">Industries</div>
-      </div>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-number" data-count="5" data-suffix="×">5×</div>
+      <div class="stat-label">SolidWorks Certifications</div>
     </div>
+    <div class="stat-card">
+      <div class="stat-number">MEng</div>
+      <div class="stat-label">Master of Engineering · 2026</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" data-count="3">3</div>
+      <div class="stat-label">Industry Roles</div>
+    </div>
+  </div>
 </section>
 
 <!-- EXPERIENCE -->
@@ -1034,7 +1041,7 @@
       <div class="edu-info">
         <h3>Ontario Tech University (UOIT)</h3>
         <div class="degree">Master of Engineering — Mechanical Engineering</div>
-        <div class="period">Graduated 2026</div>
+        <div class="period">Graduated 2026 &nbsp;·&nbsp; Oshawa, Ontario, Canada</div>
       </div>
     </div>
     <div class="edu-card fade-up delay-1">
@@ -1044,7 +1051,7 @@
       <div class="edu-info">
         <h3>Covenant University</h3>
         <div class="degree">Bachelor of Engineering — Mechanical Engineering</div>
-        <div class="period">2018 – 2023</div>
+        <div class="period">2018 – 2023 &nbsp;·&nbsp; Ota, Ogun State, Nigeria</div>
       </div>
     </div>
   </div>
@@ -1091,6 +1098,21 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+
+  // ── Stat bar slide-in animation ───────────────────────
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const cards = entry.target.querySelectorAll('.stat-card');
+      cards.forEach((card, i) => {
+        setTimeout(() => card.classList.add('slide-in'), i * 150);
+      });
+      statObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.2 });
+
+  const statsGrid = document.querySelector('.stats-grid');
+  if (statsGrid) statObserver.observe(statsGrid);
 
   // ── Stat counter animation ─────────────────────────────
   const counterObserver = new IntersectionObserver((entries) => {
