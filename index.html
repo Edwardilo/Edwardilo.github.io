@@ -610,6 +610,25 @@
     }
 
     /* ─── CASE STUDY MODAL ──────────────────────────────── */
+    @keyframes backdropIn {
+      from { background: rgba(15,23,42,0); }
+      to   { background: rgba(15,23,42,0.65); }
+    }
+    @keyframes panelUp {
+      0%   { transform: translateY(110%) scale(0.97); opacity: 0.4; }
+      65%  { transform: translateY(-6px) scale(1.002); opacity: 1; }
+      82%  { transform: translateY(3px) scale(0.999); }
+      100% { transform: translateY(0) scale(1); }
+    }
+    @keyframes panelDown {
+      from { transform: translateY(0) scale(1); opacity: 1; }
+      to   { transform: translateY(110%) scale(0.97); opacity: 0; }
+    }
+    @keyframes contentFadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -618,11 +637,12 @@
       display: flex;
       align-items: flex-end;
       pointer-events: none;
-      transition: background 0.38s ease;
+      transition: background 0.35s ease;
     }
     .modal-overlay.open {
       background: rgba(15,23,42,0.65);
       pointer-events: all;
+      animation: backdropIn 0.35s ease forwards;
     }
     .modal-panel {
       background: #fff;
@@ -630,13 +650,19 @@
       max-height: 90vh;
       border-radius: 16px 16px 0 0;
       overflow-y: auto;
-      transform: translateY(100%);
-      transition: transform 0.42s cubic-bezier(0.32,0.72,0,1);
+      transform: translateY(110%) scale(0.97);
+      opacity: 0;
+      transition: none;
       position: relative;
+      box-shadow: 0 -8px 40px rgba(15,23,42,0.18);
     }
     .modal-overlay.open .modal-panel {
-      transform: translateY(0);
+      animation: panelUp 0.55s cubic-bezier(0.22,1,0.36,1) forwards;
     }
+    .modal-overlay.closing .modal-panel {
+      animation: panelDown 0.32s ease-in forwards;
+    }
+
     .modal-close {
       position: sticky;
       top: 0;
@@ -644,29 +670,30 @@
       display: flex;
       justify-content: flex-end;
       padding: 1rem 1.5rem 0;
-      background: transparent;
     }
     .modal-close button {
-      background: var(--bg-alt);
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(6px);
       border: 1px solid var(--border);
       border-radius: 50%;
       width: 36px; height: 36px;
       display: flex; align-items: center; justify-content: center;
       cursor: pointer;
       color: var(--navy);
-      transition: background 0.2s;
+      transition: background 0.2s, transform 0.15s;
     }
-    .modal-close button:hover { background: #e2e8f0; }
+    .modal-close button:hover { background: #e2e8f0; transform: scale(1.08); }
+
     .modal-hero {
       width: 100%;
-      height: 260px;
+      height: 280px;
       object-fit: cover;
       display: block;
       margin-top: -36px;
     }
     .modal-hero-placeholder {
       width: 100%;
-      height: 260px;
+      height: 280px;
       background: var(--navy);
       display: flex;
       align-items: center;
@@ -680,11 +707,30 @@
       text-transform: uppercase;
       color: rgba(255,255,255,0.3);
     }
+
     .modal-content {
       max-width: 740px;
       margin: 0 auto;
       padding: 2.5rem 2rem 4rem;
     }
+
+    .modal-anim {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .modal-overlay.open .modal-anim {
+      animation: contentFadeUp 0.5s ease forwards;
+    }
+    .modal-overlay.open .modal-anim:nth-child(1) { animation-delay: 0.25s; }
+    .modal-overlay.open .modal-anim:nth-child(2) { animation-delay: 0.32s; }
+    .modal-overlay.open .modal-anim:nth-child(3) { animation-delay: 0.38s; }
+    .modal-overlay.open .modal-anim:nth-child(4) { animation-delay: 0.44s; }
+    .modal-overlay.open .modal-anim:nth-child(5) { animation-delay: 0.50s; }
+    .modal-overlay.open .modal-anim:nth-child(6) { animation-delay: 0.56s; }
+    .modal-overlay.open .modal-anim:nth-child(7) { animation-delay: 0.62s; }
+    .modal-overlay.open .modal-anim:nth-child(8) { animation-delay: 0.68s; }
+    .modal-overlay.open .modal-anim:nth-child(9) { animation-delay: 0.74s; }
+
     .modal-content .modal-eyebrow {
       font-size: 0.65rem;
       font-weight: 700;
@@ -709,12 +755,11 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.35rem;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2.8rem;
     }
-    .modal-divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 2.5rem 0;
+
+    .modal-section {
+      margin-bottom: 3rem;
     }
     .modal-section-label {
       font-size: 0.62rem;
@@ -737,6 +782,30 @@
       line-height: 1.8;
       margin-bottom: 1rem;
     }
+    .modal-section-img {
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 1.4rem 0;
+      background: var(--navy);
+      min-height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-section-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .modal-section-img .img-caption {
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.35);
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
     @media (max-width:640px) {
       .modal-content { padding: 1.5rem 1.2rem 3rem; }
       .modal-content h2 { font-size: 1.25rem; }
@@ -1255,10 +1324,10 @@
     <div class="modal-hero-placeholder" style="display:none;"><span>CAD &amp; Enclosure Design</span></div>
 
     <div class="modal-content">
-      <p class="modal-eyebrow">Case Study</p>
-      <h2>Electrical Panel Enclosure — Compass Series</h2>
-      <p class="modal-meta">Mikano International Limited &nbsp;·&nbsp; Mechanical Design Engineer &nbsp;·&nbsp; 2022</p>
-      <div class="modal-tags">
+      <p class="modal-eyebrow modal-anim">Case Study</p>
+      <h2 class="modal-anim">Electrical Panel Enclosure — Compass Series</h2>
+      <p class="modal-meta modal-anim">Mikano International Limited &nbsp;·&nbsp; Mechanical Design Engineer &nbsp;·&nbsp; 2022</p>
+      <div class="modal-tags modal-anim">
         <span class="project-tag">SolidWorks</span>
         <span class="project-tag">Sheet Metal</span>
         <span class="project-tag">DXF</span>
@@ -1267,27 +1336,44 @@
         <span class="project-tag">BOM</span>
       </div>
 
-      <!-- SECTION 1 -->
-      <p class="modal-section-label">Part 1 — The Problem</p>
-      <h3>Understanding the Need and Visualising the Solution</h3>
-      <p>At Mikano International Limited, one of Nigeria's leading power and industrial engineering companies, we needed a standardised enclosure solution for the electrical panel assemblies being deployed across client sites. The challenge was that every installation had slightly different spatial constraints — different floor footprints, different cable routing clearances, different door-swing requirements. A one-size-fits-all approach wasn't going to cut it.</p>
-      <p>Before touching SolidWorks, I spent time understanding the real problem: what components actually live inside these panels, how much clearance is needed for heat dissipation and cable management, and how technicians physically interact with them during both installation and maintenance. That thinking phase — talking to the electrical engineers, reviewing existing layouts — shaped every design decision that followed. The result was a parametric approach: two enclosure families (EP 800×300×1000 and EP 950×400×1150) that could be adapted rather than re-engineered from scratch each time.</p>
+      <div class="modal-section modal-anim">
+        <p class="modal-section-label">Part 1</p>
+        <h3>The Problem and the Thinking Behind It</h3>
+        <p>The client required an electrical panel installed outdoors, wall-mounted on an exposed exterior surface. That requirement immediately changed the nature of the design brief. The electrical components inside — busbars, circuit breakers, terminal blocks — could not be directly exposed to outdoor conditions. The solution was to house the inner electrical panel within a larger outer enclosure that would provide the weatherproofing and structural protection needed for an outdoor installation.</p>
+        <p>The more involved challenge was figuring out how to mount the inner panel securely inside the outer enclosure without compromising access for future maintenance. Simply bolting it flat against the back plate was not feasible given the depth constraints and the need for cable entry from below. After reviewing the available options, I settled on a mounting clamp arrangement — a set of fabricated clamps that fix the inner panel to the mounting rails of the outer enclosure, holding it firmly in position while still allowing it to be released and removed if servicing requires it.</p>
+        <!-- Recommended image: SolidWorks isometric view of the full outer + inner assembly showing the enclosure-within-enclosure arrangement. Export a screenshot from your assembly model and save as compass-assembly.png -->
+        <div class="modal-section-img">
+          <img src="compass-assembly.png" alt="Full assembly isometric view"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+          <span class="img-caption" style="display:none;">Assembly Overview</span>
+        </div>
+      </div>
 
-      <hr class="modal-divider">
+      <div class="modal-section modal-anim">
+        <p class="modal-section-label">Part 2</p>
+        <h3>The Design and Its Constraints</h3>
+        <p>Designing in sheet metal demands a different approach from standard solid modelling. Bend radii, material springback, punch clearances, and minimum flange lengths all impose constraints that have to be respected from the first sketch — not resolved at the end. The enclosures were designed in 1.5 mm mild steel using SolidWorks Sheet Metal tools, which allowed all flat patterns and bend allowances to be derived directly from the 3D model.</p>
+        <p>One of the more deliberate decisions in the design was the clearance provided between the mounting panel and the wall surface. When a panel is bolted to a wall, those fixing bolts eventually need to be accessed — whether to torque them during installation, re-tighten them after settlement, or remove the panel entirely for relocation or replacement. Without adequate clearance behind the mounting flanges, a standard socket or wrench simply cannot reach the fasteners. The design accounted for this explicitly, ensuring sufficient standoff depth at each fixing point to allow unobstructed tool access without requiring the inner panel to be removed first.</p>
+        <!-- Recommended image: SolidWorks section view or close-up showing the mounting clamp detail and the clearance gap between the back flange and the wall. Save as compass-detail.png -->
+        <div class="modal-section-img">
+          <img src="compass-detail.png" alt="Mounting clamp and clearance detail"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+          <span class="img-caption" style="display:none;">Mounting Detail</span>
+        </div>
+      </div>
 
-      <!-- SECTION 2 -->
-      <p class="modal-section-label">Part 2 — The Design</p>
-      <h3>Sheet Metal, Constraints, and Getting It Right</h3>
-      <p>Designing in sheet metal is a different mindset from solid modelling. Every bend has a bend radius. Every cut-out needs clearance for the punching tool. Material thickness — in this case 1.5 mm mild steel — dictates what's achievable without warping or weakening the structure. SolidWorks Sheet Metal tools let me model with those manufacturing constraints baked in from the start, rather than finding out the hard way during fabrication.</p>
-      <p>The enclosures had to satisfy both structural and functional requirements simultaneously: rigid enough to protect internal components and support their own weight when wall-mounted, but accessible enough that a technician could open the door, reach every busbar and terminal block, and close it again without obstruction. Door hinge placement, the gland plate configuration at the base, and the internal mounting rail positions were all iterated several times before the assembly model reflected what I was confident would actually work on site.</p>
-
-      <hr class="modal-divider">
-
-      <!-- SECTION 3 -->
-      <p class="modal-section-label">Part 3 — The Drawings</p>
-      <h3>From Model to Fabrication — Why the Drawing Package Matters</h3>
-      <p>A 3D model alone doesn't build anything. The drawing package is where the engineering intent is formally communicated — to the fabrication team, to the client, and to any inspector who signs off on the work. For the Compass series I produced a full set of 2D engineering drawings: general assembly views with overall envelope dimensions, detailed part drawings with tolerances, and DXF cut files ready for the CNC punch press. Every dimension was checked against the model, and GD&amp;T callouts were applied wherever surface quality or positional accuracy would affect fit and function.</p>
-      <p>Presenting these drawings to the client was also a moment of trust. A well-structured drawing set tells the client that the engineer has thought beyond the concept — that installation will go smoothly, that replacement parts can be sourced or re-manufactured without ambiguity, and that the technicians in the field won't be left guessing. Getting that documentation right is as important as getting the geometry right.</p>
+      <div class="modal-section modal-anim">
+        <p class="modal-section-label">Part 3</p>
+        <h3>The Drawing Package</h3>
+        <p>A three-dimensional model communicates geometry well, but it does not constitute a manufacturing document. The drawing package is the formal record of engineering intent — the document that the fabrication shop works from, the client approves, and the site technician references during installation. For the Compass series, a complete set of 2D drawings was produced: general assembly drawings with overall envelope dimensions, individual part drawings with tolerances and surface finish callouts, and DXF flat-pattern files formatted for CNC punching and laser cutting.</p>
+        <p>Dimensional accuracy in the drawings carries direct consequences in the field. A missing tolerance, an ambiguous datum, or an incorrectly projected view can lead to parts that do not fit, fastener holes that do not align, or clearances that are insufficient once assembled. Each drawing was cross-referenced against the model and reviewed for completeness before issue. The objective was to produce a drawing set clear enough that a fabricator with no prior knowledge of the project could manufacture every component to specification, and a technician could install the finished assembly without requiring further clarification.</p>
+        <!-- Recommended image: Screenshot of one of your general assembly drawing sheets (from SolidWorks or the PDF). Save as compass-drawing.png -->
+        <div class="modal-section-img">
+          <img src="compass-drawing.png" alt="General assembly engineering drawing"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+          <span class="img-caption" style="display:none;">General Assembly Drawing</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -1352,26 +1438,32 @@
   document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
 
   // ── Compass case study modal ──────────────────────────
-  const compassCard  = document.getElementById('compass-card');
-  const compassModal = document.getElementById('compass-modal');
+  const compassCard   = document.getElementById('compass-card');
+  const compassModal  = document.getElementById('compass-modal');
   const modalCloseBtn = document.getElementById('modal-close-btn');
+  const modalPanel    = compassModal.querySelector('.modal-panel');
 
   function openModal() {
+    compassModal.classList.remove('closing');
     compassModal.classList.add('open');
     document.body.style.overflow = 'hidden';
+    compassModal.querySelector('.modal-panel').scrollTop = 0;
   }
   function closeModal() {
+    compassModal.classList.add('closing');
     compassModal.classList.remove('open');
-    document.body.style.overflow = '';
+    // Wait for slide-down animation before hiding pointer events
+    modalPanel.addEventListener('animationend', () => {
+      compassModal.classList.remove('closing');
+      document.body.style.overflow = '';
+    }, { once: true });
   }
 
   compassCard.addEventListener('click', openModal);
   modalCloseBtn.addEventListener('click', closeModal);
-  // Click the dark backdrop to close
   compassModal.addEventListener('click', e => {
     if (e.target === compassModal) closeModal();
   });
-  // Escape key to close
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && compassModal.classList.contains('open')) closeModal();
   });
