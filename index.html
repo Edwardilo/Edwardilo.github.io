@@ -173,14 +173,14 @@
       z-index: 1;
       display: flex;
       align-items: center;
-      gap: 4rem;
-      max-width: 900px;
+      gap: 5rem;
+      max-width: 960px;
       width: 100%;
     }
 
     .hero-photo-frame {
-      width: 260px;
-      height: 320px;
+      width: 280px;
+      height: 360px;
       border-radius: var(--radius);
       overflow: hidden;
       flex-shrink: 0;
@@ -225,14 +225,14 @@
       color: #ffffff;
       line-height: 1.1;
       letter-spacing: -0.5px;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.9rem;
     }
 
     .hero-tags {
       display: flex;
       gap: 0.5rem;
       flex-wrap: wrap;
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.8rem;
     }
 
     .hero-tag {
@@ -250,11 +250,11 @@
     }
 
     .hero-bio {
-      font-size: 0.92rem;
+      font-size: 0.95rem;
       color: rgba(255,255,255,0.6);
-      line-height: 1.8;
-      max-width: 460px;
-      margin-bottom: 2rem;
+      line-height: 1.9;
+      max-width: 480px;
+      margin-bottom: 2.4rem;
     }
 
     .hero-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; }
@@ -989,17 +989,21 @@
       </div>
     </div>
     <div class="project-card fade-up delay-2">
-      <div class="project-img"><span class="project-img-label">Design & Manufacturing</span></div>
+      <div class="project-img">
+        <img src="compass.png" alt="Compass Electrical Panel CAD"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <span class="project-img-label" style="display:none;">CAD & Enclosure Design</span>
+      </div>
       <div class="project-body">
         <div class="project-tags">
           <span class="project-tag">SolidWorks</span>
-          <span class="project-tag">AutoCAD</span>
-          <span class="project-tag">BOM</span>
-          <span class="project-tag">Manufacturing</span>
+          <span class="project-tag">Sheet Metal</span>
+          <span class="project-tag">DXF</span>
+          <span class="project-tag">GD&T</span>
         </div>
-        <h3>Design & Manufacturing of Industrial Steel Equipment</h3>
-        <p>Created full SolidWorks and AutoCAD designs for industrial steel structures at Mikano Steel Factory, managing BOMs and coordinating manufacturing processes from drawing to delivery.</p>
-        <div class="project-meta">Mikano Steel Factory &nbsp;·&nbsp; 2022</div>
+        <h3>Electrical Panel Enclosure — Compass Series</h3>
+        <p>Designed two fully parametric sheet-metal electrical panel enclosures (EP 800×300×1000 and EP 950×400×1150) in SolidWorks for Mikano International Limited. Delivered complete part and assembly drawings, DXF cut files, and BOMs ready for fabrication.</p>
+        <div class="project-meta">Mikano International Limited &nbsp;·&nbsp; 2022</div>
       </div>
     </div>
   </div>
