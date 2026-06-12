@@ -1197,11 +1197,12 @@
   <h2 class="fade-up">Selected Work</h2>
   <div class="section-divider fade-up"></div>
   <div class="projects-grid">
-    <a class="project-card fade-up" href="https://github.com/Edwardilo/GROUP-4-FINAL-PROJECT" target="_blank" rel="noopener" style="text-decoration:none;">
+    <div class="project-card project-card--case-study fade-up" id="gapid-card">
       <div class="project-img">
         <img src="simulink.png" alt="Simulink Diagram"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
         <span class="project-img-label" style="display:none;">Robotics & Control</span>
+        <span class="case-study-badge">Case Study</span>
       </div>
       <div class="project-body">
         <div class="project-tags">
@@ -1213,12 +1214,12 @@
         </div>
         <h3>PID Controller Optimisation via Genetic Algorithm</h3>
         <p>Optimised PID controller gains for a dynamic system using a Genetic Algorithm in MATLAB/Simulink. The GA iteratively evolved gain parameters by minimising a fitness function, improving system response, reducing overshoot, and enhancing stability over manual tuning.</p>
-        <div class="project-meta" style="display:flex; justify-content:space-between; align-items:center;">
+        <div class="project-meta">
           <span>UOIT &nbsp;·&nbsp; 2025</span>
-          <span style="font-size:0.7rem; color:var(--accent); font-weight:600;">↗ View on GitHub</span>
+          <span class="read-case-study">Read case study &rarr;</span>
         </div>
       </div>
-    </a>
+    </div>
     <div class="project-card fade-up delay-1">
       <div class="project-img"><span class="project-img-label">Energy & Reliability</span></div>
       <div class="project-body">
@@ -1356,6 +1357,65 @@
     </a>
   </div>
 </section>
+
+<!-- ── GA-PID CASE STUDY MODAL ────────────────────────── -->
+<div class="modal-overlay" id="gapid-modal" role="dialog" aria-modal="true" aria-label="GA-PID case study">
+  <div class="modal-panel">
+    <div class="modal-close">
+      <button id="gapid-modal-close-btn" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <img class="modal-hero" src="simulink.png" alt="Simulink Block Diagram"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+    <div class="modal-hero-placeholder" style="display:none;"><span>Robotics &amp; Control</span></div>
+
+    <div class="modal-content">
+      <p class="modal-eyebrow modal-anim">Case Study</p>
+      <h2 class="modal-anim">PID Controller Optimisation via Genetic Algorithm</h2>
+      <p class="modal-meta modal-anim">Ontario Tech University &nbsp;·&nbsp; Graduate Research &nbsp;·&nbsp; 2025</p>
+      <div class="modal-tags modal-anim">
+        <span class="project-tag">MATLAB</span>
+        <span class="project-tag">Simulink</span>
+        <span class="project-tag">PID Control</span>
+        <span class="project-tag">Genetic Algorithm</span>
+        <span class="project-tag">2-DOF Robot Arm</span>
+        <span class="project-tag">Dynamic Modelling</span>
+      </div>
+
+      <div class="modal-section modal-anim">
+        <p class="modal-section-label">Part 1</p>
+        <h3>The Problem</h3>
+        <p>A PID controller works by continuously calculating the error between a desired setpoint and a measured output, then applying a corrective input based on three terms: proportional, integral, and derivative. The challenge is in selecting the right values for each of those three gains. Set them poorly and the system either responds too slowly, oscillates, or overshoots its target before settling. For a two-joint robot arm where both joints interact dynamically, the problem compounds: the motion of one joint creates torques that directly affect the other, making manual tuning a slow and imprecise process.</p>
+        <p>The goal of this project was to replace that manual process with a structured optimisation method. Rather than adjusting gains by hand and observing the result, we used a Genetic Algorithm to search the parameter space systematically and find the gain combinations that produced the best overall system response.</p>
+        <div class="modal-section-img">
+          <img src="simulink.png" alt="Simulink block diagram"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+          <span class="img-caption" style="display:none;">Simulink Block Diagram</span>
+        </div>
+      </div>
+
+      <div class="modal-section modal-anim">
+        <p class="modal-section-label">Part 2</p>
+        <h3>The Approach</h3>
+        <p>The system was modelled in MATLAB/Simulink as a two-degree-of-freedom robot arm, with each joint controlled by its own PID controller. The Simulink model captured the full nonlinear dynamics of the arm: the DynamicModel subsystem computed the torques required at each joint based on the current joint angles, velocities, and the applied control inputs, while the RobotArm subsystem propagated those torques forward through the equations of motion to produce the resulting joint accelerations and positions.</p>
+        <p>The Genetic Algorithm operated on this model by treating each set of PID gains as a candidate solution. At each generation, the GA evaluated a population of gain sets by simulating the system and measuring how well each set minimised a fitness function based on the integrated error across both joints. The best-performing candidates were selected, recombined, and mutated to produce the next generation. Over successive generations, the population converged toward gain values that consistently produced fast, stable, low-overshoot responses for both joints simultaneously.</p>
+      </div>
+
+      <div class="modal-section modal-anim">
+        <p class="modal-section-label">Part 3</p>
+        <h3>The Outcome</h3>
+        <p>The GA-tuned controllers outperformed manually tuned equivalents across the key performance metrics: reduced overshoot, shorter settling time, and lower steady-state error for both joints. The optimisation also highlighted something that manual tuning often misses: the interaction between the two joints meant that gains optimal for one joint in isolation were not optimal when both were running together. The GA naturally accounted for this coupling because it evaluated both joints simultaneously within the same fitness function.</p>
+        <p>From an engineering standpoint, the more significant result was demonstrating that a metaheuristic search method could reliably handle a multi-input, coupled dynamic system where the solution space is non-convex and traditional analytical tuning methods are impractical. The full model, code, and simulation results are available in the project repository.</p>
+
+        <a href="https://github.com/Edwardilo/GROUP-4-FINAL-PROJECT" target="_blank" rel="noopener" class="modal-files-btn">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          View Project on GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ── COMPASS CASE STUDY MODAL ──────────────────────── -->
 <div class="modal-overlay" id="compass-modal" role="dialog" aria-modal="true" aria-label="Compass Electrical Panel case study">
@@ -1507,6 +1567,34 @@
       document.body.style.overflow = '';
     }, { once: true });
   }
+
+  // ── GA-PID modal ──────────────────────────────────────
+  const gapidCard   = document.getElementById('gapid-card');
+  const gapidModal  = document.getElementById('gapid-modal');
+  const gapidPanel  = gapidModal.querySelector('.modal-panel');
+  const gapidClose  = document.getElementById('gapid-modal-close-btn');
+
+  function openGapidModal() {
+    gapidModal.classList.remove('closing');
+    gapidModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    gapidPanel.scrollTop = 0;
+  }
+  function closeGapidModal() {
+    gapidModal.classList.add('closing');
+    gapidModal.classList.remove('open');
+    gapidPanel.addEventListener('transitionend', () => {
+      gapidModal.classList.remove('closing');
+      document.body.style.overflow = '';
+    }, { once: true });
+  }
+
+  gapidCard.addEventListener('click', openGapidModal);
+  gapidClose.addEventListener('click', closeGapidModal);
+  gapidModal.addEventListener('click', e => { if (e.target === gapidModal) closeGapidModal(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && gapidModal.classList.contains('open')) closeGapidModal();
+  });
 
   compassCard.addEventListener('click', openModal);
   modalCloseBtn.addEventListener('click', closeModal);
