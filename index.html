@@ -1220,17 +1220,26 @@
         </div>
       </div>
     </div>
-    <div class="project-card fade-up delay-1">
-      <div class="project-img"><span class="project-img-label">Energy & Reliability</span></div>
+    <div class="project-card project-card--case-study fade-up delay-1" id="jet-card">
+      <div class="project-img">
+        <img src="jet-card.jpg" alt="CFD impinging jet velocity trajectories"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <span class="project-img-label" style="display:none;">CFD & Fluid Mechanics</span>
+        <span class="case-study-badge">Case Study</span>
+      </div>
       <div class="project-body">
         <div class="project-tags">
-          <span class="project-tag">Data Analysis</span>
-          <span class="project-tag">Reliability</span>
-          <span class="project-tag">Asset Management</span>
+          <span class="project-tag">SolidWorks Flow Simulation</span>
+          <span class="project-tag">CFD</span>
+          <span class="project-tag">Fluid Mechanics</span>
+          <span class="project-tag">Analytical Modelling</span>
         </div>
-        <h3>Generator System Performance & Reliability Optimisation</h3>
-        <p>Analysed generator fleet performance data at Pulita Energy to identify failure patterns, implement preventive maintenance schedules, and improve overall system uptime.</p>
-        <div class="project-meta">Pulita Energy &nbsp;·&nbsp; 2024</div>
+        <h3>Impinging Jet Flow: Analytical and Numerical Investigation</h3>
+        <p>Investigated a turbulent air jet impinging on a flat plate using both classical analytical theory and CFD simulation in SolidWorks Flow Simulation, then compared the two approaches to understand where simplified models hold and where they fall short.</p>
+        <div class="project-meta">
+          <span>Ontario Tech University &nbsp;·&nbsp; 2025</span>
+          <span class="read-case-study">Read case study &rarr;</span>
+        </div>
       </div>
     </div>
     <div class="project-card project-card--case-study fade-up delay-2" id="compass-card">
@@ -1357,6 +1366,75 @@
     </a>
   </div>
 </section>
+
+<!-- ── IMPINGING JET CASE STUDY MODAL ────────────────── -->
+<div class="modal-overlay" id="jet-modal" role="dialog" aria-modal="true" aria-label="Impinging jet case study">
+  <div class="modal-panel">
+    <div class="modal-close">
+      <button id="jet-modal-close-btn" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <img class="modal-hero" src="jet-card.jpg" alt="CFD velocity trajectories"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+    <div class="modal-hero-placeholder" style="display:none;"><span>CFD &amp; Fluid Mechanics</span></div>
+
+    <div class="modal-content">
+      <p class="modal-eyebrow modal-anim">Case Study</p>
+      <h2 class="modal-anim">Impinging Jet Flow: Analytical and Numerical Investigation</h2>
+      <p class="modal-meta modal-anim">Ontario Tech University &nbsp;·&nbsp; Fluid Mechanics &nbsp;·&nbsp; 2025</p>
+      <div class="modal-tags modal-anim">
+        <span class="project-tag">SolidWorks Flow Simulation</span>
+        <span class="project-tag">CFD</span>
+        <span class="project-tag">Fluid Mechanics</span>
+        <span class="project-tag">Analytical Modelling</span>
+        <span class="project-tag">Hiemenz Flow</span>
+        <span class="project-tag">Turbulence</span>
+      </div>
+
+      <div class="modal-section modal-anim">
+        <p class="modal-section-label">Part 1</p>
+        <h3>The Problem</h3>
+        <p>Impinging jet flows appear across a wide range of engineering applications: cooling electronic components, drying industrial surfaces, and directing thrust in propulsion systems. In every case, the same physical sequence plays out. A high-speed jet issues from a nozzle, travels through a free-jet region, strikes a surface, and then turns and spreads radially outward as a wall jet. The question is how accurately that behaviour can be predicted, and where the limits of a simplified model lie.</p>
+        <p>This project investigated a turbulent circular air jet issuing from a 20 mm pipe and impinging normally on a flat plate at a nozzle-to-plate distance of 60 mm, giving a Reynolds number of approximately 13,200. The objective was to analyse the flow using both classical analytical theory and a numerical CFD simulation, then directly compare the two to understand where each approach is reliable and where it is not.</p>
+        <div class="modal-section-img">
+          <img src="jet-overview.jpg" alt="CFD velocity trajectories overview"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+          <span class="img-caption" style="display:none;">CFD Velocity Trajectories Overview</span>
+        </div>
+      </div>
+
+      <div class="modal-section modal-anim">
+        <p class="modal-section-label">Part 2</p>
+        <h3>The Approach</h3>
+        <p>The analytical side of the study applied classical impinging jet theory. The stagnation region was modelled using the Hiemenz velocity field, which treats the flow near the impingement point as a local straining flow with a strain rate derived directly from the inlet velocity and nozzle spacing. From there, the pressure distribution along the plate, the radial wall-jet velocity decay, the boundary layer thickness at several radial positions, and the total momentum force on the plate were all computed from first principles.</p>
+        <p>The numerical model was built in SolidWorks Flow Simulation using the same geometry: a vertical pipe above an enclosed flat plate with surrounding side walls. A global mesh with local refinement near the jet and impingement zone was used, producing a 43,688-cell model. Global goals for average pressure and average velocity were monitored throughout the run. The solver converged after 184 iterations with no warnings, with the monitored average velocity stabilising at approximately 3.14 m/s.</p>
+        <div class="modal-section-img">
+          <img src="jet-pressure.jpg" alt="Centre-plane pressure cut plot"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+          <span class="img-caption" style="display:none;">Centre-Plane Pressure Distribution</span>
+        </div>
+      </div>
+
+      <div class="modal-section modal-anim">
+        <p class="modal-section-label">Part 3</p>
+        <h3>The Results and What They Revealed</h3>
+        <p>The CFD results confirmed the qualitative structure predicted by the analytical model: a high-pressure stagnation zone directly beneath the pipe, radial outflow spreading along the plate, and velocity decay with increasing radial distance. Quantitative agreement was reasonable for stagnation pressure, with the CFD reporting a local plate surface pressure of approximately 104,091 Pa against the analytical prediction of 101,385 Pa.</p>
+        <p>The more instructive findings came from what the analytical model could not capture. The CFD geometry included side walls and a finite enclosure, and the results showed clear confinement-induced recirculation: once the wall jet reached the boundaries, flow was redirected upward and secondary circulation cells developed inside the enclosure. None of this appears in the analytical solution, which assumes ideal radial spreading over an unbounded plate. The comparison made it evident that analytical models are powerful tools for understanding the physics and establishing baseline estimates, but CFD becomes necessary as soon as geometry, confinement, or three-dimensional effects become significant.</p>
+        <div class="modal-section-img">
+          <img src="jet-convergence.jpg" alt="Velocity goal plot showing solver convergence"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+          <span class="img-caption" style="display:none;">Solver Convergence: Velocity Goal Plot</span>
+        </div>
+
+        <a href="https://github.com/Edwardilo/impinging-jet-cfd" target="_blank" rel="noopener" class="modal-files-btn">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          View Project Files on GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ── GA-PID CASE STUDY MODAL ────────────────────────── -->
 <div class="modal-overlay" id="gapid-modal" role="dialog" aria-modal="true" aria-label="GA-PID case study">
@@ -1573,6 +1651,34 @@
       document.body.style.overflow = '';
     }, { once: true });
   }
+
+  // ── Impinging Jet modal ───────────────────────────────
+  const jetCard   = document.getElementById('jet-card');
+  const jetModal  = document.getElementById('jet-modal');
+  const jetPanel  = jetModal.querySelector('.modal-panel');
+  const jetClose  = document.getElementById('jet-modal-close-btn');
+
+  function openJetModal() {
+    jetModal.classList.remove('closing');
+    jetModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    jetPanel.scrollTop = 0;
+  }
+  function closeJetModal() {
+    jetModal.classList.add('closing');
+    jetModal.classList.remove('open');
+    jetPanel.addEventListener('transitionend', () => {
+      jetModal.classList.remove('closing');
+      document.body.style.overflow = '';
+    }, { once: true });
+  }
+
+  jetCard.addEventListener('click', openJetModal);
+  jetClose.addEventListener('click', closeJetModal);
+  jetModal.addEventListener('click', e => { if (e.target === jetModal) closeJetModal(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && jetModal.classList.contains('open')) closeJetModal();
+  });
 
   // ── GA-PID modal ──────────────────────────────────────
   const gapidCard   = document.getElementById('gapid-card');
