@@ -537,7 +537,7 @@
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
     }
 
@@ -1025,7 +1025,7 @@
       .hero-bio { margin: 0 auto 2rem; }
       .hero-actions { justify-content: center; }
       .stats-grid { max-width: 100%; flex-direction: column; gap: 1px; }
-.projects-grid { grid-template-columns: 1fr 1fr; }
+.projects-grid { grid-template-columns: 1fr; }
       .certs-grid { grid-template-columns: repeat(3, 1fr); }
       .edu-grid { grid-template-columns: 1fr; }
       nav ul { display: none; }
@@ -1260,6 +1260,28 @@
         <p>Designed two fully parametric sheet-metal electrical panel enclosures (EP 800×300×1000 and EP 950×400×1150) in SolidWorks for Mikano International Limited. Delivered complete part and assembly drawings, DXF cut files, and BOMs ready for fabrication, with every detail considered from the mounting clamp to the tightest tolerance on the drawing.</p>
         <div class="project-meta">
           Mikano International Limited &nbsp;·&nbsp; 2022
+          <span class="read-case-study">Read case study &rarr;</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card project-card--case-study fade-up delay-1" id="bcs-card">
+      <div class="project-img">
+        <img src="bcs-drawing.png" alt="Battery Charging Station assembly drawing"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <span class="project-img-label" style="display:none;">Product Design</span>
+        <span class="case-study-badge">Case Study</span>
+      </div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="project-tag">SolidWorks</span>
+          <span class="project-tag">Sheet Metal</span>
+          <span class="project-tag">Assembly Design</span>
+          <span class="project-tag">Product Development</span>
+        </div>
+        <h3>Battery Charging Station: Kinetics Africa</h3>
+        <p>Designed a prototype 15-bay battery charging station for electric tricycles at a Nigerian clean energy startup, working directly from measured battery dimensions to deliver a fully detailed SolidWorks assembly and engineering drawings ready for fabrication.</p>
+        <div class="project-meta">
+          Kinetics Africa &nbsp;·&nbsp; 2023
           <span class="read-case-study">Read case study &rarr;</span>
         </div>
       </div>
@@ -1500,6 +1522,75 @@
   </div>
 </div>
 
+<!-- ── BATTERY CHARGING STATION MODAL ───────────────── -->
+<div class="modal-overlay" id="bcs-modal" role="dialog" aria-modal="true" aria-label="Battery Charging Station case study">
+  <div class="modal-panel">
+    <div class="modal-close">
+      <button id="bcs-modal-close-btn" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <img class="modal-hero" src="bcs-drawing2.png" alt="Battery Charging Station 3D render"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+    <div class="modal-hero-placeholder" style="display:none;"><span>Product Design</span></div>
+
+    <div class="modal-content">
+      <p class="modal-eyebrow modal-anim">Case Study</p>
+      <h2 class="modal-anim">Battery Charging Station: Kinetics Africa</h2>
+      <p class="modal-meta modal-anim">Kinetics Africa / Afripoint Integrated &nbsp;·&nbsp; Mechanical Design Engineer &nbsp;·&nbsp; 2023</p>
+      <div class="modal-tags modal-anim">
+        <span class="project-tag">SolidWorks</span>
+        <span class="project-tag">Sheet Metal</span>
+        <span class="project-tag">Assembly Design</span>
+        <span class="project-tag">Product Development</span>
+        <span class="project-tag">BOM</span>
+        <span class="project-tag">Prototype</span>
+      </div>
+
+      <div class="modal-section modal-anim">
+        <p class="modal-section-label">Part 1</p>
+        <h3>The Brief</h3>
+        <p>Kinetics Africa, a Nigerian clean energy startup under Afripoint Integrated, was developing an electric tricycle for commercial release. They had a working prototype of the vehicle and the battery units that would power it. What they did not yet have was a way to charge those batteries at scale. The brief was clear: design a charging station that could house and charge multiple tricycle batteries simultaneously, with each bay secured and metered independently.</p>
+        <p>The starting point was not a specification sheet or a catalogue component. It was the battery itself. I took direct measurements of the physical prototype battery, and every dimension in the design flowed from those numbers. This is what prototype work looks like in a startup environment: there are no established standards yet, no existing infrastructure to reference, just a physical object on a workbench and a problem to solve around it.</p>
+        <div class="modal-section-img">
+          <img src="bcs-drawing.png" alt="Battery charging station assembly drawing with BOM"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+          <span class="img-caption" style="display:none;">Assembly Drawing with Bill of Materials</span>
+        </div>
+      </div>
+
+      <div class="modal-section modal-anim">
+        <p class="modal-section-label">Part 2</p>
+        <h3>The Design</h3>
+        <p>The station was designed in SolidWorks as a full assembly: a steel enclosure subdivided into 15 individual bays by a grid of horizontal and vertical partitions. Each bay was sized precisely to accept the battery, with clearance for the charging cable and enough depth to allow the door to close flush. Every compartment was fitted with its own charger, power meter, keypad, and a dual-lock door to ensure that only the authorised user could access their battery.</p>
+        <p>Designing around a prototype battery introduced a constraint that standard product design rarely faces: nothing was fixed. The battery dimensions were from a prototype, which meant tolerances had to account for variation in future production units. The compartment sizing and partition spacing were deliberately kept slightly generous to ensure the design would remain valid even if the final battery dimensions shifted modestly from the prototype values.</p>
+        <div class="modal-section-img">
+          <img src="bcs-drawing2.png" alt="Battery charging station 3D render"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+          <span class="img-caption" style="display:none;">3D Assembly Render</span>
+        </div>
+      </div>
+
+      <div class="modal-section modal-anim">
+        <p class="modal-section-label">Part 3</p>
+        <h3>The Deliverable</h3>
+        <p>The project output was a complete SolidWorks assembly with fully detailed engineering drawings and a Bill of Materials covering all 13 unique component types across the station. For a startup at prototype stage, these drawings serve a dual purpose: they are the fabrication documents for the physical prototype, and they are the baseline design record from which the product will be refined as development continues.</p>
+        <p>Working in a startup means the design does not exist in isolation. It has to be communicated clearly to fabricators who are being briefed for the first time, costed against a budget that is still being established, and understood by stakeholders who are evaluating whether to move the product forward. A drawing set that is unambiguous and complete is not just a technical document in that context — it is part of the case for the product itself.</p>
+        <div class="modal-section-img">
+          <img src="bcs-drawing3.png" alt="Battery charging station detailed drawing"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+          <span class="img-caption" style="display:none;">Engineering Drawing</span>
+        </div>
+
+        <a href="https://github.com/Edwardilo/battery-charging-station" target="_blank" rel="noopener" class="modal-files-btn">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          View Project Files on GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ── COMPASS CASE STUDY MODAL ──────────────────────── -->
 <div class="modal-overlay" id="compass-modal" role="dialog" aria-modal="true" aria-label="Compass Electrical Panel case study">
   <div class="modal-panel">
@@ -1651,6 +1742,34 @@
       document.body.style.overflow = '';
     }, { once: true });
   }
+
+  // ── Battery Charging Station modal ───────────────────
+  const bcsCard  = document.getElementById('bcs-card');
+  const bcsModal = document.getElementById('bcs-modal');
+  const bcsPanel = bcsModal.querySelector('.modal-panel');
+  const bcsClose = document.getElementById('bcs-modal-close-btn');
+
+  function openBcsModal() {
+    bcsModal.classList.remove('closing');
+    bcsModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    bcsPanel.scrollTop = 0;
+  }
+  function closeBcsModal() {
+    bcsModal.classList.add('closing');
+    bcsModal.classList.remove('open');
+    bcsPanel.addEventListener('transitionend', () => {
+      bcsModal.classList.remove('closing');
+      document.body.style.overflow = '';
+    }, { once: true });
+  }
+
+  bcsCard.addEventListener('click', openBcsModal);
+  bcsClose.addEventListener('click', closeBcsModal);
+  bcsModal.addEventListener('click', e => { if (e.target === bcsModal) closeBcsModal(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && bcsModal.classList.contains('open')) closeBcsModal();
+  });
 
   // ── Impinging Jet modal ───────────────────────────────
   const jetCard   = document.getElementById('jet-card');
