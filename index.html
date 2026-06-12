@@ -833,6 +833,21 @@
       text-transform: uppercase;
     }
 
+    .modal-files-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--navy);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.7rem 1.3rem;
+      border-radius: 6px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .modal-files-btn:hover { background: var(--accent); transform: translateY(-1px); }
+
     @media (max-width:640px) {
       .modal-content { padding: 1.5rem 1.2rem 3rem; }
       .modal-content h2 { font-size: 1.25rem; }
@@ -1231,7 +1246,7 @@
           <span class="project-tag">DXF</span>
           <span class="project-tag">GD&T</span>
         </div>
-        <h3>Electrical Panel Enclosure — Compass Series</h3>
+        <h3>Electrical Panel Enclosure: Compass Series</h3>
         <p>Designed two fully parametric sheet-metal electrical panel enclosures (EP 800×300×1000 and EP 950×400×1150) in SolidWorks for Mikano International Limited. Delivered complete part and assembly drawings, DXF cut files, and BOMs ready for fabrication.</p>
         <div class="project-meta">
           Mikano International Limited &nbsp;·&nbsp; 2022
@@ -1356,7 +1371,7 @@
 
     <div class="modal-content">
       <p class="modal-eyebrow modal-anim">Case Study</p>
-      <h2 class="modal-anim">Electrical Panel Enclosure — Compass Series</h2>
+      <h2 class="modal-anim">Electrical Panel Enclosure: Compass Series</h2>
       <p class="modal-meta modal-anim">Mikano International Limited &nbsp;·&nbsp; Mechanical Design Engineer &nbsp;·&nbsp; 2022</p>
       <div class="modal-tags modal-anim">
         <span class="project-tag">SolidWorks</span>
@@ -1370,9 +1385,8 @@
       <div class="modal-section modal-anim">
         <p class="modal-section-label">Part 1</p>
         <h3>The Problem and the Thinking Behind It</h3>
-        <p>The client required an electrical panel installed outdoors, wall-mounted on an exposed exterior surface. That requirement immediately changed the nature of the design brief. The electrical components inside — busbars, circuit breakers, terminal blocks — could not be directly exposed to outdoor conditions. The solution was to house the inner electrical panel within a larger outer enclosure that would provide the weatherproofing and structural protection needed for an outdoor installation.</p>
-        <p>The more involved challenge was figuring out how to mount the inner panel securely inside the outer enclosure without compromising access for future maintenance. Simply bolting it flat against the back plate was not feasible given the depth constraints and the need for cable entry from below. After reviewing the available options, I settled on a mounting clamp arrangement — a set of fabricated clamps that fix the inner panel to the mounting rails of the outer enclosure, holding it firmly in position while still allowing it to be released and removed if servicing requires it.</p>
-        <!-- Recommended image: SolidWorks isometric view of the full outer + inner assembly showing the enclosure-within-enclosure arrangement. Export a screenshot from your assembly model and save as compass-assembly.png -->
+        <p>The client required an electrical panel installed outdoors, wall-mounted on an exposed exterior surface. That requirement immediately changed the nature of the design brief. The electrical components inside (busbars, circuit breakers, terminal blocks) could not be directly exposed to outdoor conditions. The solution was to house the inner electrical panel within a larger outer enclosure that would provide the weatherproofing and structural protection needed for an outdoor installation.</p>
+        <p>The more involved challenge was figuring out how to mount the inner panel securely inside the outer enclosure without compromising access for future maintenance. Simply bolting it flat against the back plate was not feasible given the depth constraints and the need for cable entry from below. After reviewing the available options, I settled on a mounting clamp arrangement: a set of fabricated clamps that fix the inner panel to the mounting rails of the outer enclosure, holding it firmly in position while still allowing it to be released and removed if servicing requires it.</p>
         <div class="modal-section-img">
           <img src="compass-assembly.png" alt="Full assembly isometric view"
             onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
@@ -1383,9 +1397,8 @@
       <div class="modal-section modal-anim">
         <p class="modal-section-label">Part 2</p>
         <h3>The Design and Its Constraints</h3>
-        <p>Designing in sheet metal demands a different approach from standard solid modelling. Bend radii, material springback, punch clearances, and minimum flange lengths all impose constraints that have to be respected from the first sketch — not resolved at the end. The enclosures were designed in 1.5 mm mild steel using SolidWorks Sheet Metal tools, which allowed all flat patterns and bend allowances to be derived directly from the 3D model.</p>
-        <p>One of the more deliberate decisions in the design was the clearance provided between the mounting panel and the wall surface. When a panel is bolted to a wall, those fixing bolts eventually need to be accessed — whether to torque them during installation, re-tighten them after settlement, or remove the panel entirely for relocation or replacement. Without adequate clearance behind the mounting flanges, a standard socket or wrench simply cannot reach the fasteners. The design accounted for this explicitly, ensuring sufficient standoff depth at each fixing point to allow unobstructed tool access without requiring the inner panel to be removed first.</p>
-        <!-- Recommended image: SolidWorks section view or close-up showing the mounting clamp detail and the clearance gap between the back flange and the wall. Save as compass-detail.png -->
+        <p>Designing in sheet metal demands a different approach from standard solid modelling. Bend radii, material springback, punch clearances, and minimum flange lengths all impose constraints that have to be respected from the first sketch, not resolved at the end. The enclosures were designed in 1.5 mm mild steel using SolidWorks Sheet Metal tools, which allowed all flat patterns and bend allowances to be derived directly from the 3D model.</p>
+        <p>One of the more deliberate decisions in the design was the clearance provided between the mounting panel and the wall surface. When a panel is bolted to a wall, the fixing bolts need to remain accessible for torquing during installation, re-tightening after settlement, or full removal during relocation. Without adequate clearance behind the mounting flanges, a standard socket or wrench simply cannot reach the fasteners. The design accounted for this explicitly, ensuring sufficient standoff depth at each fixing point to allow unobstructed tool access without requiring the inner panel to be removed first.</p>
         <div class="modal-section-img">
           <img src="compass-detail.png" alt="Mounting clamp and clearance detail"
             onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
@@ -1396,14 +1409,20 @@
       <div class="modal-section modal-anim">
         <p class="modal-section-label">Part 3</p>
         <h3>The Drawing Package</h3>
-        <p>A three-dimensional model communicates geometry well, but it does not constitute a manufacturing document. The drawing package is the formal record of engineering intent — the document that the fabrication shop works from, the client approves, and the site technician references during installation. For the Compass series, a complete set of 2D drawings was produced: general assembly drawings with overall envelope dimensions, individual part drawings with tolerances and surface finish callouts, and DXF flat-pattern files formatted for CNC punching and laser cutting.</p>
-        <p>Dimensional accuracy in the drawings carries direct consequences in the field. A missing tolerance, an ambiguous datum, or an incorrectly projected view can lead to parts that do not fit, fastener holes that do not align, or clearances that are insufficient once assembled. Each drawing was cross-referenced against the model and reviewed for completeness before issue. The objective was to produce a drawing set clear enough that a fabricator with no prior knowledge of the project could manufacture every component to specification, and a technician could install the finished assembly without requiring further clarification.</p>
-        <!-- Recommended image: Screenshot of one of your general assembly drawing sheets (from SolidWorks or the PDF). Save as compass-drawing.png -->
+        <p>A three-dimensional model communicates geometry well, but it does not constitute a manufacturing document. The drawing package is the formal record of engineering intent: the document that the fabrication shop works from, the client approves, and the site technician references during installation. For the Compass series, a complete set of 2D drawings was produced, including general assembly drawings with overall envelope dimensions, individual part drawings with tolerances and surface finish callouts, and DXF flat-pattern files formatted for CNC punching and laser cutting.</p>
+        <p>Dimensional accuracy in the drawings carries direct consequences in the field. A missing tolerance, an ambiguous datum, or an incorrectly projected view can result in parts that do not fit, fastener holes that do not align, or clearances that are insufficient once assembled. Each drawing was cross-referenced against the model and reviewed for completeness before issue. The objective was to produce a drawing set clear enough that a fabricator with no prior knowledge of the project could manufacture every component to specification, and a technician could install the finished assembly without requiring further clarification.</p>
         <div class="modal-section-img">
           <img src="compass-drawing.png" alt="General assembly engineering drawing"
             onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
           <span class="img-caption" style="display:none;">General Assembly Drawing</span>
         </div>
+      </div>
+
+      <div class="modal-section modal-anim">
+        <a href="https://github.com/Edwardilo/compass-electrical-panel" target="_blank" rel="noopener" class="modal-files-btn">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          View Project Files on GitHub
+        </a>
       </div>
     </div>
   </div>
