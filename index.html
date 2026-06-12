@@ -609,6 +609,139 @@
       border-top: 1px solid var(--border);
     }
 
+    /* ─── CASE STUDY MODAL ──────────────────────────────── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15,23,42,0);
+      z-index: 1000;
+      display: flex;
+      align-items: flex-end;
+      pointer-events: none;
+      transition: background 0.38s ease;
+    }
+    .modal-overlay.open {
+      background: rgba(15,23,42,0.65);
+      pointer-events: all;
+    }
+    .modal-panel {
+      background: #fff;
+      width: 100%;
+      max-height: 90vh;
+      border-radius: 16px 16px 0 0;
+      overflow-y: auto;
+      transform: translateY(100%);
+      transition: transform 0.42s cubic-bezier(0.32,0.72,0,1);
+      position: relative;
+    }
+    .modal-overlay.open .modal-panel {
+      transform: translateY(0);
+    }
+    .modal-close {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: flex-end;
+      padding: 1rem 1.5rem 0;
+      background: transparent;
+    }
+    .modal-close button {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      color: var(--navy);
+      transition: background 0.2s;
+    }
+    .modal-close button:hover { background: #e2e8f0; }
+    .modal-hero {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+      margin-top: -36px;
+    }
+    .modal-hero-placeholder {
+      width: 100%;
+      height: 260px;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: -36px;
+    }
+    .modal-hero-placeholder span {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+    .modal-content {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 4rem;
+    }
+    .modal-content .modal-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .modal-content h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
+      line-height: 1.25;
+    }
+    .modal-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 1.4rem;
+    }
+    .modal-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 2.5rem;
+    }
+    .modal-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2.5rem 0;
+    }
+    .modal-section-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .modal-content h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.9rem;
+      line-height: 1.35;
+    }
+    .modal-content p {
+      font-size: 0.875rem;
+      color: #475569;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    @media (max-width:640px) {
+      .modal-content { padding: 1.5rem 1.2rem 3rem; }
+      .modal-content h2 { font-size: 1.25rem; }
+    }
+
     /* ─── CERTIFICATIONS ──────────────────────────────── */
     #certifications { background: var(--bg-alt); border-bottom: 1px solid var(--border); }
 
@@ -988,7 +1121,7 @@
         <div class="project-meta">Pulita Energy &nbsp;·&nbsp; 2024</div>
       </div>
     </div>
-    <div class="project-card fade-up delay-2">
+    <div class="project-card fade-up delay-2" id="compass-card" style="cursor:pointer;">
       <div class="project-img">
         <img src="compass.png" alt="Compass Electrical Panel CAD"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
@@ -1109,6 +1242,56 @@
   </div>
 </section>
 
+<!-- ── COMPASS CASE STUDY MODAL ──────────────────────── -->
+<div class="modal-overlay" id="compass-modal" role="dialog" aria-modal="true" aria-label="Compass Electrical Panel case study">
+  <div class="modal-panel">
+    <div class="modal-close">
+      <button id="modal-close-btn" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <img class="modal-hero" src="compass.png" alt="Compass Electrical Panel Assembly"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+    <div class="modal-hero-placeholder" style="display:none;"><span>CAD &amp; Enclosure Design</span></div>
+
+    <div class="modal-content">
+      <p class="modal-eyebrow">Case Study</p>
+      <h2>Electrical Panel Enclosure — Compass Series</h2>
+      <p class="modal-meta">Mikano International Limited &nbsp;·&nbsp; Mechanical Design Engineer &nbsp;·&nbsp; 2022</p>
+      <div class="modal-tags">
+        <span class="project-tag">SolidWorks</span>
+        <span class="project-tag">Sheet Metal</span>
+        <span class="project-tag">DXF</span>
+        <span class="project-tag">GD&amp;T</span>
+        <span class="project-tag">Assembly Drawings</span>
+        <span class="project-tag">BOM</span>
+      </div>
+
+      <!-- SECTION 1 -->
+      <p class="modal-section-label">Part 1 — The Problem</p>
+      <h3>Understanding the Need and Visualising the Solution</h3>
+      <p>At Mikano International Limited, one of Nigeria's leading power and industrial engineering companies, we needed a standardised enclosure solution for the electrical panel assemblies being deployed across client sites. The challenge was that every installation had slightly different spatial constraints — different floor footprints, different cable routing clearances, different door-swing requirements. A one-size-fits-all approach wasn't going to cut it.</p>
+      <p>Before touching SolidWorks, I spent time understanding the real problem: what components actually live inside these panels, how much clearance is needed for heat dissipation and cable management, and how technicians physically interact with them during both installation and maintenance. That thinking phase — talking to the electrical engineers, reviewing existing layouts — shaped every design decision that followed. The result was a parametric approach: two enclosure families (EP 800×300×1000 and EP 950×400×1150) that could be adapted rather than re-engineered from scratch each time.</p>
+
+      <hr class="modal-divider">
+
+      <!-- SECTION 2 -->
+      <p class="modal-section-label">Part 2 — The Design</p>
+      <h3>Sheet Metal, Constraints, and Getting It Right</h3>
+      <p>Designing in sheet metal is a different mindset from solid modelling. Every bend has a bend radius. Every cut-out needs clearance for the punching tool. Material thickness — in this case 1.5 mm mild steel — dictates what's achievable without warping or weakening the structure. SolidWorks Sheet Metal tools let me model with those manufacturing constraints baked in from the start, rather than finding out the hard way during fabrication.</p>
+      <p>The enclosures had to satisfy both structural and functional requirements simultaneously: rigid enough to protect internal components and support their own weight when wall-mounted, but accessible enough that a technician could open the door, reach every busbar and terminal block, and close it again without obstruction. Door hinge placement, the gland plate configuration at the base, and the internal mounting rail positions were all iterated several times before the assembly model reflected what I was confident would actually work on site.</p>
+
+      <hr class="modal-divider">
+
+      <!-- SECTION 3 -->
+      <p class="modal-section-label">Part 3 — The Drawings</p>
+      <h3>From Model to Fabrication — Why the Drawing Package Matters</h3>
+      <p>A 3D model alone doesn't build anything. The drawing package is where the engineering intent is formally communicated — to the fabrication team, to the client, and to any inspector who signs off on the work. For the Compass series I produced a full set of 2D engineering drawings: general assembly views with overall envelope dimensions, detailed part drawings with tolerances, and DXF cut files ready for the CNC punch press. Every dimension was checked against the model, and GD&amp;T callouts were applied wherever surface quality or positional accuracy would affect fit and function.</p>
+      <p>Presenting these drawings to the client was also a moment of trust. A well-structured drawing set tells the client that the engineer has thought beyond the concept — that installation will go smoothly, that replacement parts can be sourced or re-manufactured without ambiguity, and that the technicians in the field won't be left guessing. Getting that documentation right is as important as getting the geometry right.</p>
+    </div>
+  </div>
+</div>
+
 <footer>© 2026 Edward Iloemezue &nbsp;·&nbsp; Mechanical Engineer &nbsp;·&nbsp; Ontario, Canada</footer>
 
 <script>
@@ -1167,6 +1350,31 @@
   }, { threshold: 0.6 });
 
   document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+  // ── Compass case study modal ──────────────────────────
+  const compassCard  = document.getElementById('compass-card');
+  const compassModal = document.getElementById('compass-modal');
+  const modalCloseBtn = document.getElementById('modal-close-btn');
+
+  function openModal() {
+    compassModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    compassModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  compassCard.addEventListener('click', openModal);
+  modalCloseBtn.addEventListener('click', closeModal);
+  // Click the dark backdrop to close
+  compassModal.addEventListener('click', e => {
+    if (e.target === compassModal) closeModal();
+  });
+  // Escape key to close
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && compassModal.classList.contains('open')) closeModal();
+  });
 </script>
 
 </body>
