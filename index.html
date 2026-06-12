@@ -1197,7 +1197,29 @@
   <h2 class="fade-up">Selected Work</h2>
   <div class="section-divider fade-up"></div>
   <div class="projects-grid">
-    <div class="project-card project-card--case-study fade-up" id="gapid-card">
+    <div class="project-card project-card--case-study fade-up" id="jet-card">
+      <div class="project-img">
+        <img src="jet-card.jpg" alt="CFD impinging jet velocity trajectories"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <span class="project-img-label" style="display:none;">CFD & Fluid Mechanics</span>
+        <span class="case-study-badge">View Project</span>
+      </div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="project-tag">SolidWorks Flow Simulation</span>
+          <span class="project-tag">CFD</span>
+          <span class="project-tag">Fluid Mechanics</span>
+          <span class="project-tag">Analytical Modelling</span>
+        </div>
+        <h3>Impinging Jet Flow: Analytical and Numerical Investigation</h3>
+        <p>Investigated a turbulent air jet impinging on a flat plate using both classical analytical theory and CFD simulation in SolidWorks Flow Simulation, then compared the two approaches to understand where simplified models hold and where they fall short.</p>
+        <div class="project-meta">
+          <span>Ontario Tech University &nbsp;·&nbsp; 2026</span>
+          <span class="read-case-study">View more &rarr;</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card project-card--case-study fade-up delay-1" id="gapid-card">
       <div class="project-img">
         <img src="simulink.png" alt="Simulink Diagram"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
@@ -1216,28 +1238,6 @@
         <p>Optimised PID controller gains for a dynamic system using a Genetic Algorithm in MATLAB/Simulink. The GA iteratively evolved gain parameters by minimising a fitness function, improving system response, reducing overshoot, and enhancing stability over manual tuning.</p>
         <div class="project-meta">
           <span>UOIT &nbsp;·&nbsp; 2025</span>
-          <span class="read-case-study">View more &rarr;</span>
-        </div>
-      </div>
-    </div>
-    <div class="project-card project-card--case-study fade-up delay-1" id="jet-card">
-      <div class="project-img">
-        <img src="jet-card.jpg" alt="CFD impinging jet velocity trajectories"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-        <span class="project-img-label" style="display:none;">CFD & Fluid Mechanics</span>
-        <span class="case-study-badge">View Project</span>
-      </div>
-      <div class="project-body">
-        <div class="project-tags">
-          <span class="project-tag">SolidWorks Flow Simulation</span>
-          <span class="project-tag">CFD</span>
-          <span class="project-tag">Fluid Mechanics</span>
-          <span class="project-tag">Analytical Modelling</span>
-        </div>
-        <h3>Impinging Jet Flow: Analytical and Numerical Investigation</h3>
-        <p>Investigated a turbulent air jet impinging on a flat plate using both classical analytical theory and CFD simulation in SolidWorks Flow Simulation, then compared the two approaches to understand where simplified models hold and where they fall short.</p>
-        <div class="project-meta">
-          <span>Ontario Tech University &nbsp;·&nbsp; 2026</span>
           <span class="read-case-study">View more &rarr;</span>
         </div>
       </div>
@@ -1840,7 +1840,7 @@
 
   // ── Unified project modal system ─────────────────────
   // Order matches the visual grid (chronological, newest first)
-  const PROJECT_ORDER = ['gapid', 'jet', 'bcs', 'compass'];
+  const PROJECT_ORDER = ['jet', 'gapid', 'bcs', 'compass'];
   let isSwitching = false;
 
   function getOpenIdx() {
