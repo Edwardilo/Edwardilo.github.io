@@ -1872,12 +1872,12 @@
     const panel = modal.querySelector('.modal-panel');
 
     if (enterFrom) {
-      // Start off-screen (no transition), then animate in
+      // Fade in from transparent
       panel.style.transition = 'none';
-      panel.style.transform = enterFrom === 'right' ? 'translateX(110%)' : 'translateX(-110%)';
+      panel.style.opacity = '0';
       panel.offsetHeight; // force reflow
-      panel.style.transition = 'transform 0.32s ease-out';
-      panel.style.transform = 'translateY(0)';
+      panel.style.transition = 'opacity 0.3s ease';
+      panel.style.opacity = '1';
     }
 
     modal.classList.remove('closing');
@@ -1889,9 +1889,9 @@
     if (enterFrom) {
       setTimeout(() => {
         panel.style.transition = '';
-        panel.style.transform = '';
+        panel.style.opacity = '';
         isSwitching = false;
-      }, 400);
+      }, 320);
     }
   }
 
@@ -1909,32 +1909,29 @@
   function exitAndSwitch(currentId, direction) {
     const modal = document.getElementById(currentId + '-modal');
     const panel = modal.querySelector('.modal-panel');
-    const exitTo = direction === 'next' ? 'translateX(-110%)' : 'translateX(110%)';
-    const enterFrom = direction === 'next' ? 'right' : 'left';
-
-    panel.style.transition = 'transform 0.26s ease-in';
-    panel.style.transform = exitTo;
+    const enterFrom = direction; // just passed through to signal a nav transition
 
     const idx = PROJECT_ORDER.indexOf(currentId);
     const nextIdx = direction === 'next' ? idx + 1 : idx - 1;
     // Stop at boundaries
     if (nextIdx < 0 || nextIdx >= PROJECT_ORDER.length) {
-      panel.style.transition = '';
-      panel.style.transform = '';
       isSwitching = false;
       return;
     }
     const nextId = PROJECT_ORDER[nextIdx];
 
+    // Fade out current panel, then swap
+    panel.style.transition = 'opacity 0.2s ease';
+    panel.style.opacity = '0';
+
     setTimeout(() => {
-      // Hide current modal (no animation — panel already exited)
       modal.classList.remove('open', 'closing');
       panel.style.transition = '';
-      panel.style.transform = '';
-      document.body.style.overflow = ''; // briefly, re-locked by openProjectModal
+      panel.style.opacity = '';
+      document.body.style.overflow = '';
 
       openProjectModal(nextId, enterFrom);
-    }, 240);
+    }, 200);
   }
 
   // Global navigate function (called by nav buttons)
